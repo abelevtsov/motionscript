@@ -12,6 +12,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
             Get["/"] = 
                 _ =>
                 {
+                    Logger.Info("APP STARTED");
                     return View["index"];
                 };
         }
