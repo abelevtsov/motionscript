@@ -1,9 +1,12 @@
-﻿using Nancy;
+﻿using Castle.Core.Logging;
+using Nancy;
 
 namespace OwnSpace.MotionScript.ScriptEditor
 {
     public class IndexModule : NancyModule
     {
+        private ILogger logger = NullLogger.Instance;
+
         public IndexModule()
         {
             Get["/"] = 
@@ -11,6 +14,12 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 {
                     return View["index"];
                 };
+        }
+
+        public ILogger Logger
+        {
+            get { return logger; }
+            set { logger = value; }
         }
     }
 }

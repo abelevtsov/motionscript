@@ -22,3 +22,6 @@ sysinfo.txt
 # Packages
 packages/
 !packages/repositories.config
+
+# StyleCop and other temp cache files
+*.cache

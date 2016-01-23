@@ -1,11 +1,18 @@
-﻿using Nancy.Bootstrappers.Windsor;
+﻿using Castle.Facilities.Logging;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using Nancy.Bootstrappers.Windsor;
 
 namespace OwnSpace.MotionScript.ScriptEditor
 {
     public class Bootstrapper : WindsorNancyBootstrapper
     {
-        // The bootstrapper enables you to reconfigure the composition of the framework,
-        // by overriding the various methods and properties.
-        // For more information https://github.com/NancyFx/Nancy/wiki/Bootstrapper
+        protected override void ConfigureApplicationContainer(IWindsorContainer container)
+        {
+            base.ConfigureApplicationContainer(container);
+
+            // container.Register(Component.For(typeof(IRepository<>)).ImplementedBy(typeof(Repository<>)).LifeStyle.Transient);
+            container.AddFacility<LoggingFacility>(f => f.LogUsing(LoggerImplementation.NLog).WithConfig("NLog.config"));
+        }
     }
 }
