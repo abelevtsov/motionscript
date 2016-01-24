@@ -2,6 +2,9 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Nancy.Bootstrappers.Windsor;
+using OwnSpace.MotionScript.DataAccess;
+using OwnSpace.MotionScript.DataAccess.Contracts;
+using OwnSpace.MotionScript.ScriptEditor.Properties;
 
 namespace OwnSpace.MotionScript.ScriptEditor
 {
@@ -11,8 +14,11 @@ namespace OwnSpace.MotionScript.ScriptEditor
         {
             base.ConfigureApplicationContainer(container);
 
-            // container.Register(Component.For(typeof(IRepository<>)).ImplementedBy(typeof(Repository<>)).LifeStyle.Transient);
-            container.AddFacility<LoggingFacility>(f => f.LogUsing(LoggerImplementation.NLog).WithConfig("NLog.config"));
+            container.Register(Component.For(typeof(IScenarioRepository))
+                     .ImplementedBy(typeof(ScenarioRepository))
+                     .LifeStyle.Transient
+                     .DependsOn(Dependency.OnValue("mongoConnectionString", Settings.Default.MongoConnectionString)))
+                     .AddFacility<LoggingFacility>(f => f.LogUsing(LoggerImplementation.NLog).WithConfig("NLog.config"));
         }
     }
 }

@@ -1,5 +1,9 @@
 ﻿using Castle.Core.Logging;
+using MongoDB.Bson;
 using Nancy;
+using Nancy.ModelBinding;
+using OwnSpace.MotionScript.DataAccess.Contracts;
+using OwnSpace.MotionScript.DataAccess.Entities;
 
 namespace OwnSpace.MotionScript.ScriptEditor
 {
@@ -7,17 +11,34 @@ namespace OwnSpace.MotionScript.ScriptEditor
     {
         private ILogger logger = NullLogger.Instance;
 
-        public IndexModule()
+        private IScenarioRepository ScenarioRepository { get; set; }
+
+        public IndexModule(IScenarioRepository scenarioRepository)
         {
-            Get["/"] = 
+            ScenarioRepository = scenarioRepository;
+
+            Get["/"] =
                 _ =>
                 {
-                    Logger.Info("APP STARTED");
+                    return View["index"];
+                };
+            Get["/scenario/{id}", runAsync: true] =
+                async (@params, cts) =>
+                {
+                    var scenario = await ScenarioRepository.ObtainScenario(ObjectId.Parse((string)@params.id)).ConfigureAwait(false);
+                    return Response.AsJson(scenario);
+                };
+            Post["/scenario", runAsync: true] =
+                async (_, cts) =>
+                {
+                    var scenario = this.Bind<Scenario>();
+                    await ScenarioRepository.AddOrUpdateScenario(scenario);
+
                     return View["index"];
                 };
         }
 
-        public ILogger Logger
+        private ILogger Logger
         {
             get { return logger; }
             set { logger = value; }
