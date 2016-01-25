@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnSpace.MotionScript.ScriptEditor", "OwnSpace.MotionScript.ScriptEditor\OwnSpace.MotionScript.ScriptEditor.csproj", "{ED638DD5-E755-4B7A-940D-5C94AB425686}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnSpace.MotionScript.ScriptEditor.WebApi", "OwnSpace.MotionScript.ScriptEditor.WebApi\OwnSpace.MotionScript.ScriptEditor.WebApi.csproj", "{ED638DD5-E755-4B7A-940D-5C94AB425686}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnSpace.MotionScript.DataAccess", "OwnSpace.MotionScript.DataAccess\OwnSpace.MotionScript.DataAccess.csproj", "{D590F831-654C-459F-B431-E6A608061133}"
 EndProject
