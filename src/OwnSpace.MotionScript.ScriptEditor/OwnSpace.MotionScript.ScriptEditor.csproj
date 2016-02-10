@@ -111,7 +111,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\nancy-logo.png" />
+    <Content Include="Content\images\nancy-logo.png" />
+    <Content Include="Content\scripts\app.js" />
+    <Content Include="Content\scripts\app\main.js" />
+    <Content Include="Gruntfile.js" />
+    <Content Include="Gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,11 +137,16 @@
     <Content Include="packages.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\styles\main.less" />
+    <Content Include=".jscsrc" />
+    <Content Include=".jshintrc" />
+    <Content Include="bower.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="package.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,8 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
-    <Folder Include="Content\images\" />
-    <Folder Include="Content\scripts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OwnSpace.MotionScript.DataAccess\OwnSpace.MotionScript.DataAccess.csproj">

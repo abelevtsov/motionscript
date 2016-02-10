@@ -1,0 +1,28 @@
+{
+  "name": "OwnSpace.MotionScript.ScriptEditor",
+  "version": "0.0.1",
+  "author": "Aleksandr Belevtsov <belevtsov80@mail.ru>",
+  "description": "Web resources for OwnSpace.MotionScript.ScriptEditor solution",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts/tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.11.4",
+    "linqjs": "^3.0.5",
+    "jquery.blockUI": "2.70",
+    "underscore": "^1.8.3",
+    "json2": "*",
+    "base64": "~0.3.0",
+    "requirejs": "^2.1.22",
+    "requirejs-text": "^2.0.14",
+    "backbone-amd": "^1.1.0",
+    "marionette": "^2.4.4"
+  }
+}
