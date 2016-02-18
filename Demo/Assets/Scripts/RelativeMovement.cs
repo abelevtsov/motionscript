@@ -3,12 +3,12 @@
 [RequireComponent(typeof(CharacterController))]
 public class RelativeMovement : MonoBehaviour
 {
-    public float moveSpeed = 6.0f;
-    public float rotSpeed = 15.0f;
-    public float jumpSpeed = 15.0f;
-    public float gravity = -9.8f;
-    public float terminalVelocity = -20.0f;
-    public float minFall = -1.5f;
+    public float moveSpeed = 6.0F;
+    public float rotSpeed = 15.0F;
+    public float jumpSpeed = 15.0F;
+    public float gravity = -9.8F;
+    public float terminalVelocity = -20.0F;
+    public float minFall = -1.5F;
 
     private float vertSpeed;
     private ControllerColliderHit contact;
@@ -30,12 +30,12 @@ public class RelativeMovement : MonoBehaviour
     void Update()
     {
         var movement = Vector3.zero;
-        var horInput = Input.GetAxis("Horizontal");
+        var horizInput = Input.GetAxis("Horizontal");
         var vertInput = Input.GetAxis("Vertical");
 
-        if (!(horInput == 0 && vertInput == 0))
+        if (!(horizInput == 0 && vertInput == 0))
         {
-            movement.x = horInput * moveSpeed;
+            movement.x = horizInput * moveSpeed;
             movement.z = vertInput * moveSpeed;
             movement = Vector3.ClampMagnitude(movement, moveSpeed);
 

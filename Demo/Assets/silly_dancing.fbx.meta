@@ -194,7 +194,7 @@ ModelImporter:
     4300016: boss:Teeth_Down_Geo
     4300018: boss:Pants_Geo
     4300020: boss:Arms_Geo
-    7400000: mixamo.com
+    7400000: Dance
     9500000: //RootNode
     13700000: boss:Arms_Geo
     13700002: boss:Cigar_Geo
@@ -218,20 +218,229 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'boss:Spine2' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Dance
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 163
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boss:Hips
+        weight: 1
+      - path: boss:Hips/boss:LeftUpLeg
+        weight: 1
+      - path: boss:Hips/boss:LeftUpLeg/boss:LeftLeg
+        weight: 1
+      - path: boss:Hips/boss:LeftUpLeg/boss:LeftLeg/boss:LeftFoot
+        weight: 1
+      - path: boss:Hips/boss:LeftUpLeg/boss:LeftLeg/boss:LeftFoot/boss:LeftToeBase
+        weight: 1
+      - path: boss:Hips/boss:LeftUpLeg/boss:LeftLeg/boss:LeftFoot/boss:LeftToeBase/boss:LeftFootToeBase_End
+        weight: 0
+      - path: boss:Hips/boss:RightUpLeg
+        weight: 1
+      - path: boss:Hips/boss:RightUpLeg/boss:RightLeg
+        weight: 1
+      - path: boss:Hips/boss:RightUpLeg/boss:RightLeg/boss:RightFoot
+        weight: 1
+      - path: boss:Hips/boss:RightUpLeg/boss:RightLeg/boss:RightFoot/boss:RightToeBase
+        weight: 1
+      - path: boss:Hips/boss:RightUpLeg/boss:RightLeg/boss:RightFoot/boss:RightToeBase/boss:RightFootToeBase_End
+        weight: 0
+      - path: boss:Hips/boss:Spine
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandIndex1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandIndex1/boss:LeftHandIndex2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandIndex1/boss:LeftHandIndex2/boss:LeftHandIndex3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandIndex1/boss:LeftHandIndex2/boss:LeftHandIndex3/boss:LeftHandIndex4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandIndex1/boss:LeftHandIndex2/boss:LeftHandIndex3/boss:LeftHandIndex5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandMiddle1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandMiddle1/boss:LeftHandMiddle2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandMiddle1/boss:LeftHandMiddle2/boss:LeftHandMiddle3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandMiddle1/boss:LeftHandMiddle2/boss:LeftHandMiddle3/boss:LeftHandMiddle4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandMiddle1/boss:LeftHandMiddle2/boss:LeftHandMiddle3/boss:LeftHandMiddle5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandPinky1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandPinky1/boss:LeftHandPinky2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandPinky1/boss:LeftHandPinky2/boss:LeftHandPinky3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandPinky1/boss:LeftHandPinky2/boss:LeftHandPinky3/boss:LeftHandPinky4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandPinky1/boss:LeftHandPinky2/boss:LeftHandPinky3/boss:LeftHandPinky5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandRing1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandRing1/boss:LeftHandRing2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandRing1/boss:LeftHandRing2/boss:LeftHandRing3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandRing1/boss:LeftHandRing2/boss:LeftHandRing3/boss:LeftHandRing4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandRing1/boss:LeftHandRing2/boss:LeftHandRing3/boss:LeftHandRing5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandThumb1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandThumb1/boss:LeftHandThumb2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandThumb1/boss:LeftHandThumb2/boss:LeftHandThumb3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandThumb1/boss:LeftHandThumb2/boss:LeftHandThumb3/boss:LeftHandThumb4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:LeftShoulder/boss:LeftArm/boss:LeftForeArm/boss:LeftHand/boss:LeftHandThumb1/boss:LeftHandThumb2/boss:LeftHandThumb3/boss:LeftHandThumb5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:Neck
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:Neck/boss:Neck1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:Neck/boss:Neck1/boss:Head
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:Neck/boss:Neck1/boss:Head/boss:HeadTop_End
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandIndex1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandIndex1/boss:RightHandIndex2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandIndex1/boss:RightHandIndex2/boss:RightHandIndex3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandIndex1/boss:RightHandIndex2/boss:RightHandIndex3/boss:RightHandIndex4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandIndex1/boss:RightHandIndex2/boss:RightHandIndex3/boss:RightHandIndex5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandMiddle1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandMiddle1/boss:RightHandMiddle2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandMiddle1/boss:RightHandMiddle2/boss:RightHandMiddle3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandMiddle1/boss:RightHandMiddle2/boss:RightHandMiddle3/boss:RightHandMiddle4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandMiddle1/boss:RightHandMiddle2/boss:RightHandMiddle3/boss:RightHandMiddle5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandPinky1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandPinky1/boss:RightHandPinky2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandPinky1/boss:RightHandPinky2/boss:RightHandPinky3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandPinky1/boss:RightHandPinky2/boss:RightHandPinky3/boss:RightHandPinky4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandPinky1/boss:RightHandPinky2/boss:RightHandPinky3/boss:RightHandPinky5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandRing1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandRing1/boss:RightHandRing2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandRing1/boss:RightHandRing2/boss:RightHandRing3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandRing1/boss:RightHandRing2/boss:RightHandRing3/boss:RightHandRing4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandRing1/boss:RightHandRing2/boss:RightHandRing3/boss:RightHandRing5
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandThumb1
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandThumb1/boss:RightHandThumb2
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandThumb1/boss:RightHandThumb2/boss:RightHandThumb3
+        weight: 1
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandThumb1/boss:RightHandThumb2/boss:RightHandThumb3/boss:RightHandThumb4
+        weight: 0
+      - path: boss:Hips/boss:Spine/boss:Spine1/boss:Spine2/boss:RightShoulder/boss:RightArm/boss:RightForeArm/boss:RightHand/boss:RightHandThumb1/boss:RightHandThumb2/boss:RightHandThumb3/boss:RightHandThumb5
+        weight: 0
+      - path: boss:Meshes
+        weight: 0
+      - path: boss:Meshes/boss:Arms_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Cigar_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Hat_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Head_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Jacket_Geo
+        weight: 0
+      - path: boss:Meshes/boss:L_Eye_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Pants_Geo
+        weight: 0
+      - path: boss:Meshes/boss:R_Eye_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Shoes_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Teeth_Down_Geo
+        weight: 0
+      - path: boss:Meshes/boss:Teeth_Up_Geo
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -248,13 +457,893 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    human: []
-    skeleton: []
+    human:
+    - boneName: boss:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: boss:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: silly_dancing(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Meshes
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Arms_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Cigar_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Hat_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Head_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Jacket_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:L_Eye_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Pants_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:R_Eye_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Shoes_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Teeth_Down_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Teeth_Up_Geo
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Hips
+      position: {x: 0.0000000040978194, y: 1.0909706, z: -0.19035852}
+      rotation: {x: -0.0000000014551915, y: 1.0587912e-18, z: -7.2759576e-10, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: boss:RightUpLeg
+      position: {x: 0.10597169, y: -0.036005795, z: -0.000000011}
+      rotation: {x: 0.0000000014551916, y: -0.000000011641534, z: 0.00000001236913,
+        w: 1}
+      scale: {x: 0.99999994, y: 0.99999976, z: 1}
+      transformModified: 1
+    - name: boss:RightLeg
+      position: {x: 6.875e-10, y: -0.45903, z: -0.019029615}
+      rotation: {x: -4.065759e-16, y: 1.7763568e-15, z: -0.000000005820768, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+      transformModified: 1
+    - name: boss:RightFoot
+      position: {x: -0.00013867769, y: -0.4310838, z: -0.009324557}
+      rotation: {x: 0.000000001455192, y: 0.000000011641532, z: -0.000000005820766,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightToeBase
+      position: {x: 0.00201641, y: -0.13412394, z: 0.0911049}
+      rotation: {x: -0.0000000014551917, y: 0.0000000014551917, z: -2.1175822e-18,
+        w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+      transformModified: 1
+    - name: boss:RightFootToeBase_End
+      position: {x: -0.0000351429, y: 0, z: 0.20401104}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftUpLeg
+      position: {x: -0.10597169, y: -0.036005795, z: -0.000000011}
+      rotation: {x: 0.000000024738256, y: 0.000000005820766, z: 0.0000000050931703,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+      transformModified: 1
+    - name: boss:LeftLeg
+      position: {x: -6.875e-10, y: -0.45903, z: -0.019029615}
+      rotation: {x: -0.000000023283064, y: -0.000000005820766, z: -0.0000000043655746,
+        w: 1}
+      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+      transformModified: 1
+    - name: boss:LeftFoot
+      position: {x: -0.00013865432, y: -0.4310838, z: -0.009324557}
+      rotation: {x: 5.551115e-15, y: 1.4444475e-29, z: 2.6020852e-15, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:LeftToeBase
+      position: {x: 0.002016157, y: -0.13412394, z: 0.0911049}
+      rotation: {x: 7.275901e-10, y: -8.273763e-21, z: -1.1371284e-11, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftFootToeBase_End
+      position: {x: -0, y: 0, z: 0.20401104}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Spine
+      position: {x: -0, y: 0.101489514, z: 0.017348463}
+      rotation: {x: 0.0000000014551917, y: -0.000000034924597, z: -5.0821977e-17,
+        w: 1}
+      scale: {x: 1, y: 0.9999997, z: 0.99999994}
+      transformModified: 1
+    - name: boss:Spine1
+      position: {x: -0, y: 0.17879432, z: -0.0018216548}
+      rotation: {x: -0.000000005820766, y: 0.000000023283064, z: 7.2759593e-10, w: 1}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: boss:Spine2
+      position: {x: -0, y: 0.15003614, z: -0.014215355}
+      rotation: {x: 0.000000005820766, y: 0.000000023283064, z: 1.3552527e-16, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+      transformModified: 1
+    - name: boss:RightShoulder
+      position: {x: 0.06754218, y: 0.11205713, z: -0.04172568}
+      rotation: {x: -0.000000023283064, y: -0.000000034924593, z: 0.0000000058207643,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: boss:RightArm
+      position: {x: 0.13555431, y: -0.012242735, z: -0.019728027}
+      rotation: {x: 0.000000027648639, y: 0.00000002328306, z: -0.0000000058207648,
+        w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: boss:RightForeArm
+      position: {x: 0.3045571, y: 0, z: 0}
+      rotation: {x: 0.000000002910383, y: 0.000000011641532, z: 0.0000000072759576,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:RightHand
+      position: {x: 0.30661157, y: 0, z: 0}
+      rotation: {x: -0.000000030559022, y: -0.000000011641532, z: -0.00000001891749,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+      transformModified: 1
+    - name: boss:RightHandIndex1
+      position: {x: 0.11513156, y: 0.0053853905, z: 0.029831592}
+      rotation: {x: -0.00083555334, y: -0.099715576, z: 0.0063469, w: 0.9949954}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightHandIndex2
+      position: {x: 0.059144437, y: 0, z: 2.4424906e-18}
+      rotation: {x: 1.7763568e-15, y: 1.0842022e-15, z: 0.000000046566136, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: boss:RightHandIndex3
+      position: {x: 0.03724016, y: 0, z: 0}
+      rotation: {x: -0.000000034924597, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:RightHandIndex4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandIndex5
+      position: {x: 0.030503603, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandPinky1
+      position: {x: 0.109686054, y: -0.0013105839, z: -0.043494053}
+      rotation: {x: 0.000000034924597, y: 4.0657603e-16, z: -0.000000034924604, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000004}
+      transformModified: 1
+    - name: boss:RightHandPinky2
+      position: {x: 0.040180337, y: 0, z: 0}
+      rotation: {x: 1.7763568e-15, y: 1.0842022e-15, z: 0.000000046566136, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: boss:RightHandPinky3
+      position: {x: 0.030602373, y: 0, z: 0}
+      rotation: {x: -0.000000005579348, y: -0.000000029802319, z: 3.3306688e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightHandPinky4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandPinky5
+      position: {x: 0.025043432, y: -3.126388e-16, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandRing1
+      position: {x: 0.11517235, y: 0.004266592, z: -0.02129909}
+      rotation: {x: 0.000000034924597, y: 4.0657603e-16, z: -0.000000034924604, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightHandRing2
+      position: {x: 0.059414037, y: 0, z: 0}
+      rotation: {x: 1.7763568e-15, y: 1.0842022e-15, z: 0.000000046566136, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: boss:RightHandRing3
+      position: {x: 0.037307557, y: 0, z: 0}
+      rotation: {x: -0.000000034924597, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:RightHandRing4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandRing5
+      position: {x: 0.032631345, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandMiddle1
+      position: {x: 0.11835562, y: 0.00538538, z: 0.004705789}
+      rotation: {x: 0.000000034924597, y: 4.0657603e-16, z: -0.000000034924604, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightHandMiddle2
+      position: {x: 0.061784446, y: 0, z: 0}
+      rotation: {x: 1.7763568e-15, y: 1.0842022e-15, z: 0.000000046566136, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: boss:RightHandMiddle3
+      position: {x: 0.041099895, y: 0, z: 0}
+      rotation: {x: -0.000000034924597, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:RightHandMiddle4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandMiddle5
+      position: {x: 0.031682853, y: 6.252776e-16, z: -2.4424906e-18}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandThumb1
+      position: {x: 0.027695427, y: -0.010303337, z: 0.027650349}
+      rotation: {x: -0.043864384, y: -0.019023376, z: 0.041284595, w: 0.9980028}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: boss:RightHandThumb2
+      position: {x: 0.035901655, y: -0.011956614, z: 0.03263568}
+      rotation: {x: -0.028150756, y: -0.09898976, z: -0.005298522, w: 0.9946761}
+      scale: {x: 1, y: 0.99999976, z: 0.9999998}
+      transformModified: 1
+    - name: boss:RightHandThumb3
+      position: {x: 0.04858181, y: -0.015072892, z: 0.023485266}
+      rotation: {x: -0.00000001164153, y: -0.000000011641534, z: -0.00000004656613,
+        w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+      transformModified: 1
+    - name: boss:RightHandThumb4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:RightHandThumb5
+      position: {x: 0.038238052, y: -0.00057240773, z: 0.012880406}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftShoulder
+      position: {x: -0.06758649, y: 0.11205713, z: -0.04172568}
+      rotation: {x: 0.000000011641534, y: -0.000000023283064, z: 0.000000011641532,
+        w: 1}
+      scale: {x: 1, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: boss:LeftArm
+      position: {x: -0.13551001, y: -0.012242735, z: -0.019728027}
+      rotation: {x: -0.00000005820766, y: 0.000000026193446, z: 0.000000017462298,
+        w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+      transformModified: 1
+    - name: boss:LeftForeArm
+      position: {x: -0.3045571, y: 0, z: 0}
+      rotation: {x: 0.000000052386895, y: -0.0000000029103815, z: -0.00000002910383,
+        w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: boss:LeftHand
+      position: {x: -0.30661157, y: 0, z: 0}
+      rotation: {x: 0.000000004365575, y: -0.000000023283066, z: -0.000000005820767,
+        w: 1}
+      scale: {x: 1, y: 1, z: 0.9999997}
+      transformModified: 1
+    - name: boss:LeftHandIndex1
+      position: {x: -0.11433988, y: 0.0067623714, z: 0.029760411}
+      rotation: {x: -0.0011002888, y: 0.099283256, z: -0.008357251, w: 0.99502355}
+      scale: {x: 1.0000002, y: 1, z: 1.0000006}
+      transformModified: 1
+    - name: boss:LeftHandIndex2
+      position: {x: -0.061042193, y: 0, z: 0}
+      rotation: {x: 0.000000018917493, y: -0.000000014551917, z: -0.000000034924597,
+        w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+      transformModified: 1
+    - name: boss:LeftHandIndex3
+      position: {x: -0.03730231, y: 0, z: 0}
+      rotation: {x: -0.00000000873115, y: 0.000000011641534, z: 0.00000002328306,
+        w: 1}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+      transformModified: 1
+    - name: boss:LeftHandIndex4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandIndex5
+      position: {x: -0.030337157, y: 3.126388e-16, z: 1.6270256e-33}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandPinky1
+      position: {x: -0.11014291, y: -0.00086182804, z: -0.043638553}
+      rotation: {x: -0.0000000014551924, y: 0.000000005820768, z: 0.000000005820767,
+        w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
+      transformModified: 1
+    - name: boss:LeftHandPinky2
+      position: {x: -0.040438816, y: 0, z: 0}
+      rotation: {x: 0.000000005820766, y: -0.000000005820768, z: -0.000000023283068,
+        w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandPinky3
+      position: {x: -0.030924773, y: 0, z: 0}
+      rotation: {x: -0.000000021862418, y: 0.000000029802319, z: 0.000000023283068,
+        w: 1}
+      scale: {x: 0.99999964, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandPinky4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandPinky5
+      position: {x: -0.021180106, y: 3.126388e-16, z: 1.6270256e-33}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandRing1
+      position: {x: -0.1135768, y: 0.003532452, z: -0.020630961}
+      rotation: {x: -0.0000000174623, y: 0.000000023283068, z: -0.000000005820767,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1.0000006}
+      transformModified: 1
+    - name: boss:LeftHandRing2
+      position: {x: -0.059897553, y: 0, z: 0}
+      rotation: {x: 0.000000018917493, y: -0.000000014551917, z: -0.000000034924597,
+        w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+      transformModified: 1
+    - name: boss:LeftHandRing3
+      position: {x: -0.0408449, y: 0, z: 0}
+      rotation: {x: -0.00000000873115, y: 0.000000011641534, z: 0.00000002328306,
+        w: 1}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+      transformModified: 1
+    - name: boss:LeftHandRing4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandRing5
+      position: {x: -0.030337157, y: 3.126388e-16, z: 1.6270256e-33}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandMiddle1
+      position: {x: -0.11510298, y: 0.0067623598, z: 0.0047276574}
+      rotation: {x: -0.0000000058207665, y: 0.00000000873115, z: 0.000000017462302,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1.0000004}
+      transformModified: 1
+    - name: boss:LeftHandMiddle2
+      position: {x: -0.063713, y: 0, z: 0}
+      rotation: {x: 0.0000000029103824, y: -0.000000008731148, z: -0.0000000349246,
+        w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: boss:LeftHandMiddle3
+      position: {x: -0.0408449, y: 0, z: 0}
+      rotation: {x: 0.000000014551915, y: 5.0821977e-16, z: 0.000000023283064, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: boss:LeftHandMiddle4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandMiddle5
+      position: {x: -0.030337157, y: 3.126388e-16, z: 1.6270256e-33}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandThumb1
+      position: {x: -0.026163645, y: -0.011031889, z: 0.028830295}
+      rotation: {x: -0.043439474, y: 0.028132744, z: -0.041498166, w: 0.9977973}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: boss:LeftHandThumb2
+      position: {x: -0.03698606, y: -0.0110319005, z: 0.03123749}
+      rotation: {x: -0.024530975, y: 0.08199365, z: -0.0000883533, w: 0.9963309}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+      transformModified: 1
+    - name: boss:LeftHandThumb3
+      position: {x: -0.049519744, y: -0.014789489, z: 0.023960937}
+      rotation: {x: 0.00000006402843, y: -2.11517e-15, z: -0.00000004656613, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: boss:LeftHandThumb4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:LeftHandThumb5
+      position: {x: -0.03535819, y: 0, z: 0.016388884}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Neck
+      position: {x: -0, y: 0.15265188, z: -0.047896054}
+      rotation: {x: 0.000000011641532, y: -0.00000004656613, z: 0.0000000058207665,
+        w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: boss:Neck1
+      position: {x: -0, y: 0.047740296, z: 0.010195845}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: boss:Head
+      position: {x: -0, y: 0.04429272, z: 0.00944372}
+      rotation: {x: -0.000000023283066, y: 0.000000011641532, z: 0.0000000058207665,
+        w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: boss:HeadTop_End
+      position: {x: -5.495604e-18, y: 0.45859316, z: 0.03011604}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -265,7 +1354,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
