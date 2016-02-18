@@ -13,9 +13,11 @@
         },
         shim: {
             backbone: {
+                deps: ["underscore", "jquery"],
                 exports: "Backbone"
             },
             marionette: {
+                deps: ["jquery", "underscore", "backbone"],
                 exports: "Marionette"
             },
             underscore: {

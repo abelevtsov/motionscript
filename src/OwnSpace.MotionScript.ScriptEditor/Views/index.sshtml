@@ -1,12 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>MotionScript: ScriptEditor</title>
-        <link rel="stylesheet" href="../Content/styles/main.less"/>
-        <script data-main="../Content/scripts/app" src="../Content/scripts/lib/requirejs/require.js"></script>
-    </head>
-    <body>
-      <!--<img src="@Path['~/Content/images/nancy-logo.png']" alt="Nancy logo" /><br />-->
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <title>MotionScript: ScriptEditor</title>
+    <link rel="stylesheet" href="../Content/styles/main.less"/>
+    <script data-main="../Content/scripts/app" src="../Content/scripts/lib/requirejs/require.js"></script>
+</head>
+<body>
+    <div class="sidebar"></div>
+    <div id="main">
+        <div class="title"></div>
+        <div id="workplace"></div>
+    </div>
+    <div id="footer"></div>
+</body>
 </html>
