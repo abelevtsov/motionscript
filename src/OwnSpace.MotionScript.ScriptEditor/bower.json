@@ -23,6 +23,7 @@
     "requirejs": "^2.1.22",
     "requirejs-text": "^2.0.14",
     "backbone-amd": "^1.1.0",
+    "backbone.radio": "^1.0.2",
     "marionette": "^2.4.4"
   }
 }

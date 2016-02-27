@@ -1,0 +1,100 @@
+﻿body {
+    margin: 0
+}
+
+.row, 
+.col {
+    overflow: hidden; position: absolute;
+}
+
+.row {
+    left: 0;
+    right: 0;
+}
+
+.col {
+    top: 0;
+    bottom: 0;
+}
+
+.scroll-x {
+    overflow-x: auto;
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.header.row {
+    height: 75px;
+    top: 0;
+}
+
+.body.row {
+    top: 75px;
+    bottom: 50px;
+}
+
+.footer.row {
+    height: 50px;
+    bottom: 0;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Specific pane configuration */
+.header.row {
+    height: 75px;
+    background: #333;
+}
+
+/*.body.row { top: 75px; bottom: 0px; background: #000; padding: 1em; }*/
+/*.footer.row { height: 50px; bottom: 0; background: #333; }*/
+.footer.row {
+    background: #333;
+}
+
+.left.col {
+    background-color: #008000;
+}
+
+body {
+    color: #ffffff;
+    background: #000;
+    font-family: Segoe UI, Helvetica, Arial, Sans-Serif;
+}
+
+.header,
+.footer {
+    padding: 0 1em;
+}
+
+.left.col {
+    top: 75px;
+    width: 250px;
+}
+
+.right.col {
+    top: 75px;
+    left: 250px;
+    right: 0;
+}
+
+.right.col .header.row {
+    height: 75px;
+    line-height: 75px;
+    background-color: #ff0000;
+}
+
+.body.row {
+    top: 75px;
+    bottom: 50px;
+}
+
+.footer.row {
+    height: 50px;
+    bottom: 0;
+    line-height: 50px;
+}

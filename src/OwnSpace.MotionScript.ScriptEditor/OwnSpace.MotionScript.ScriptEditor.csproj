@@ -112,7 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\nancy-logo.png" />
-    <Content Include="Content\scripts\app.js" />
+    <Content Include="Content\scripts\app\models.js" />
+    <Content Include="Content\scripts\app\templates.html" />
+    <Content Include="Content\scripts\app\views.js" />
+    <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\app\main.js" />
     <Content Include="Gruntfile.js" />
     <Content Include="Gulpfile.js" />
@@ -139,7 +142,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\styles\main.less" />
+    <Content Include="Content\styles\main.css" />
     <Content Include=".jscsrc" />
     <Content Include=".jshintrc" />
     <Content Include="bower.json" />
@@ -160,6 +163,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
+    <Folder Include="Content\scripts\app\templates\" />
+    <Folder Include="Content\scripts\app\views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OwnSpace.MotionScript.DataAccess\OwnSpace.MotionScript.DataAccess.csproj">

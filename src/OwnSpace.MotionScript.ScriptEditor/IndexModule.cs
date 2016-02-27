@@ -11,8 +11,6 @@ namespace OwnSpace.MotionScript.ScriptEditor
     {
         private ILogger logger = NullLogger.Instance;
 
-        private IScenarioRepository ScenarioRepository { get; set; }
-
         public IndexModule(IScenarioRepository scenarioRepository)
         {
             ScenarioRepository = scenarioRepository;
@@ -37,6 +35,8 @@ namespace OwnSpace.MotionScript.ScriptEditor
                     return View["index"];
                 };
         }
+
+        private IScenarioRepository ScenarioRepository { get; set; }
 
         private ILogger Logger
         {

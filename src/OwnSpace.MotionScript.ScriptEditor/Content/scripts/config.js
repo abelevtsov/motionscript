@@ -3,9 +3,12 @@
         baseUrl: "../content/scripts/lib",
         paths: {
             app: "../app",
+            views: "../app/views",
+            models: "../app/models",
             backbone: "backbone/backbone",
             "backbone.babysitter": "backbone.babysitter/backbone.babysitter",
             "backbone.wreqr": "backbone.wreqr/backbone.wreqr",
+            radio: "backbone.radio/backbone.radio",
             marionette: "marionette/backbone.marionette",
             underscore: "underscore/underscore",
             jquery: "jquery/jquery",

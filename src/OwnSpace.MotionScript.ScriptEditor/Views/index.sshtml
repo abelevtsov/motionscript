@@ -2,16 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>MotionScript: ScriptEditor</title>
-    <link rel="stylesheet" href="../Content/styles/main.less"/>
-    <script data-main="../Content/scripts/app" src="../Content/scripts/lib/requirejs/require.js"></script>
+    <title>MotionScript: Editor</title>
+    <link rel="stylesheet" href="../Content/styles/main.css"/>
+    <script data-main="../Content/scripts/config" src="../Content/scripts/lib/requirejs/require.js"></script>
+
+    <script type="text/template" id="app-layout-template">
+        <div id="header" class="header row"></div>
+        <div id="sidebar" class="left col">
+        </div>
+        <div id="main" class="right col">
+            <div class="header row">
+                View or edit something
+            </div>
+            <div class="body row scroll-y">
+                Here’s some content that can scroll vertically
+            </div>
+        </div>
+        <div class="footer row">
+            <p>Created by <a href="http://github.com/abelevtsov">Aleksandr Belevtsov</a>
+                and <a href="http://github.com/apadalka">Aleksandr Padalka</a>
+                using <a href="http://marionettejs.com">Backbone.Marionette</a> | See who else is using marionette at <a href="http://marionettejs.com/">marionettejs.com</a>.
+            </p>
+        </div>
+    </script>
+    <script type="text/template" id="header-template">
+        <h3><%- name %> (Author: <%- author.fullName() %>, Version: <%- version %>)</h3>
+        <button id="toggle-sidebar-command">toggle sidebar</button>
+    </script>
+    <script type="text/template" id="sidebar-template">
+        <a href="http://pupunzi.com/#mb.components/mb.extruder/extruder.html">ToDo: use extruder</a>
+        <a href="http://www.sitepoint.com/10-jquery-sliding-sidebar-panel-plugins/">or some of these</a>
+        <button id="alert-command">Click Me!</button>
+    </script>
 </head>
 <body>
-    <div class="sidebar"></div>
-    <div id="main">
-        <div class="title"></div>
-        <div id="workplace"></div>
-    </div>
-    <div id="footer"></div>
+    <div id="page"></div>
 </body>
 </html>

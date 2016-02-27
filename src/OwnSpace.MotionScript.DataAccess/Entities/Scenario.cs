@@ -11,7 +11,7 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
             Scenes = new List<Scene>();
         }
 
-        public Scenario(string name): this()
+        public Scenario(string name) : this()
         {
             Name = name;
         }

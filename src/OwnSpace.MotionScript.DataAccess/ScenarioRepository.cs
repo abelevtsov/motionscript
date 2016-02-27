@@ -10,12 +10,12 @@ namespace OwnSpace.MotionScript.DataAccess
 {
     public class ScenarioRepository : IScenarioRepository
     {
-        public static Func<IMongoDatabase> GetDatabase { get; set; }
-
         public ScenarioRepository(string mongoConnectionString)
         {
             GetDatabase = () => new MongoClient(mongoConnectionString).GetDatabase("MotionScript");
         }
+
+        private static Func<IMongoDatabase> GetDatabase { get; set; }
 
         public async Task<Scenario> ObtainScenario(ObjectId id)
         {
