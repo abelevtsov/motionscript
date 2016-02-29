@@ -1,9 +1,21 @@
 ﻿define(["backbone"], function(Backbone) {
-    var Scenario = Backbone.Model.extend({
+    var ScriptBlock = Backbone.Model.extend({
             defaults: {
-                name: "My first scenario",
-                version: "0.0.0.1"
+                text: "",
+                type: "text"
             }
+        }),
+        ScriptBlockCollection = Backbone.Collection.extend({
+            model: ScriptBlock
+        }),
+        Scene = Backbone.Model.extend({
+            defaults: {
+                heading: "SCENE 1",
+                blocks: new ScriptBlockCollection()
+            }
+        }),
+        SceneCollection = Backbone.Collection.extend({
+            model: Scene
         }),
         Author = Backbone.Model.extend({
             defaults: {
@@ -12,19 +24,27 @@
                 middleName: "Erickovitch"
             },
             fullName: function() {
-                return this.get("firstName") + " " + this.get("middleName") + " " + this.get("lastName");
+                if (!this.fullName.compiled) {
+                    this.fullName.compiled = _.template("<%= firstName %> <%= middleName %> <%= lastName %>");
+                }
+
+                return this.fullName.compiled(this.toJSON());
             }
         }),
-        ScriptBlock = Backbone.Model.extend({
+        Scenario = Backbone.Model.extend({
             defaults: {
-                text: "",
-                type: "Text"
+                name: "My first scenario",
+                version: "0.0.0.1",
+                scenes: new SceneCollection()
             }
         });
 
     return {
         ScriptBlock: ScriptBlock,
         Author: Author,
+        Scene: Scene,
+        Scenes: SceneCollection,
+        ScriptBlocks: ScriptBlockCollection,
         Scenario: Scenario
     }
 })

@@ -3,6 +3,7 @@
         baseUrl: "../content/scripts/lib",
         paths: {
             app: "../app",
+            templates: "../app/templates/templates",
             views: "../app/views",
             models: "../app/models",
             backbone: "backbone/backbone",

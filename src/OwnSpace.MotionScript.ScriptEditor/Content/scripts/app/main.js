@@ -1,4 +1,4 @@
-﻿define(["backbone", "marionette", "views", "models"], function(Backbone, Marionette, Views, Models) {
+﻿define(["backbone", "marionette", "views", "models", "templates"], function(Backbone, Marionette, Views, Models, templates) {
     var loadInitialData = function() {
             return {
                 then: function (callback) {
@@ -6,21 +6,32 @@
                 }
             };
         },
+        AppLayout = Backbone.Marionette.LayoutView.extend({
+            template: _.template(templates.applayout),
+            regions: {
+                mainRegion: "#main",
+                headerRegion: "#header",
+                sidebarRegion: "#sidebar"
+            }
+        }),
         App = Marionette.Application.extend({
             initialize: function(options) {
                 console.log("app init");
                 if (Backbone.history) {
                     Backbone.history.start();
                 }
-
-                //this.rootView = new Views.RootView();
             }
-        });
+        }),
 
-    var app = new App(),
+        app = new App(),
         author = new Models.Author({}),
+        block = new Models.ScriptBlock({ text: "Charlie tear down slowly" }),
+        scene = new Models.Scene({
+            blocks: new Models.ScriptBlocks([block])
+        }),
         scenario = new Models.Scenario({
-            author: author
+            author: author,
+            scenes: new Models.Scenes([scene])
         });
 
     app.addInitializer(function(options) {
@@ -28,53 +39,42 @@
                 vent: this.vent,
                 model: scenario
             }),
-            appSidebarView = new Views.SidebarView({
-                vent: this.vent
+            sidebarView = new Views.SidebarView({
+                vent: this.vent,
+                model: scenario
             }),
             appMainView = new Views.MainView({
-                vent: this.vent
+                vent: this.vent,
+                model: scenario
             }),
-
             layout = new AppLayout();
 
         app.appRegion.show(layout);
 
         layout.headerRegion.show(appHeaderView);
-        layout.sidebarRegion.show(appSidebarView);
-        //layout.mainRegion.show(appMainView);
+        layout.sidebarRegion.show(sidebarView);
+        layout.mainRegion.show(appMainView);
+
         this.vent.on("sidebar:toggle", function(e) {
             if (layout.sidebarRegion.currentView) {
                 layout.sidebarRegion.empty();
             } else {
-                if (appSidebarView.isDestroyed) {
-                    appSidebarView = new Views.SidebarView({
-                        vent: this.vent
+                if (sidebarView.isDestroyed) {
+                    sidebarView = new Views.SidebarView({
+                        vent: this.vent,
+                        model: scenario
                     });
                 }
 
-                layout.sidebarRegion.show(appSidebarView);
+                layout.sidebarRegion.show(sidebarView);
             }
         });
     });
-    var AppLayout = Backbone.Marionette.LayoutView.extend({
-        template: "#app-layout-template",
-        regions: {
-            mainRegion: "#main",
-            headerRegion: "#header",
-            sidebarRegion: "#sidebar"
-        }
-    });
 
     app.addRegions({
-        appRegion: "#page"
+        appRegion: "#app"
     });
 
-    app.on("start", function() {
-        //var block = new Models.ScriptBlock({ text: "WTF" });
-        //this.rootView.getRegion("sidebar").show(new Views.SidebarView({ model: "" }));
-        //this.rootView.getRegion("main").show(new Views.MainView({ model: block }));
-    });
-    
     //loadInitialData().then(app.start);
     app.start();
 });

@@ -114,6 +114,15 @@
     <Content Include="Content\images\nancy-logo.png" />
     <Content Include="Content\scripts\app\models.js" />
     <Content Include="Content\scripts\app\templates.html" />
+    <Content Include="Content\scripts\app\templates\block.html" />
+    <Content Include="Content\scripts\app\templates\layout.html" />
+    <Content Include="Content\scripts\app\templates\scenario.html" />
+    <Content Include="Content\scripts\app\templates\scene.html" />
+    <Content Include="Content\scripts\app\templates\title.html" />
+    <Content Include="Content\scripts\app\templates\sidebar.html" />
+    <Content Include="Content\scripts\app\templates\header.html" />
+    <Content Include="Content\scripts\app\templates\main.html" />
+    <Content Include="Content\scripts\app\templates\templates.js" />
     <Content Include="Content\scripts\app\views.js" />
     <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\app\main.js" />
@@ -163,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
-    <Folder Include="Content\scripts\app\templates\" />
     <Folder Include="Content\scripts\app\views\" />
   </ItemGroup>
   <ItemGroup>
