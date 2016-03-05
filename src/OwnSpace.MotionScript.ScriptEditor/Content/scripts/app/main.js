@@ -6,14 +6,6 @@
                 }
             };
         },
-        AppLayout = Backbone.Marionette.LayoutView.extend({
-            template: _.template(templates.applayout),
-            regions: {
-                mainRegion: "#main",
-                headerRegion: "#header",
-                sidebarRegion: "#sidebar"
-            }
-        }),
         App = Marionette.Application.extend({
             initialize: function(options) {
                 console.log("app init");
@@ -47,7 +39,7 @@
                 vent: this.vent,
                 model: scenario
             }),
-            layout = new AppLayout();
+            layout = new Views.AppLayout();
 
         app.appRegion.show(layout);
 

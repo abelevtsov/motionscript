@@ -15,7 +15,8 @@
             }
         }),
         SceneCollection = Backbone.Collection.extend({
-            model: Scene
+            model: Scene,
+            url: "/scenes"
         }),
         Author = Backbone.Model.extend({
             defaults: {
@@ -36,7 +37,8 @@
                 name: "My first scenario",
                 version: "0.0.0.1",
                 scenes: new SceneCollection()
-            }
+            },
+            url: "/scenario"
         });
 
     return {
@@ -46,5 +48,5 @@
         Scenes: SceneCollection,
         ScriptBlocks: ScriptBlockCollection,
         Scenario: Scenario
-    }
+    };
 })

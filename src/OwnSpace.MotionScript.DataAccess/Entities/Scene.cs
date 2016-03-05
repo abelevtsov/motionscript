@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 
+using MongoDB.Bson;
+
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
     public class Scene
     {
         public Scene()
         {
-            SceneBlocks = new List<ScriptBlock>();
+            Blocks = new List<ScriptBlock>();
         }
 
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
 
         public string Heading { get; set; }
 
-        public IList<ScriptBlock> SceneBlocks { get; private set; }
+        public IList<ScriptBlock> Blocks { get; set; }
     }
 }

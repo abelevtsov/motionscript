@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using MongoDB.Bson;
@@ -16,6 +17,21 @@ namespace OwnSpace.MotionScript.DataAccess
         }
 
         private static Func<IMongoDatabase> GetDatabase { get; set; }
+
+        public async Task<IEnumerable<Scenario>> ObtainScenarios()
+        {
+            var result = new List<Scenario>();
+            var filter = Builders<Scenario>.Filter.Empty;
+            using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
+            {
+                while (await cursor.MoveNextAsync().ConfigureAwait(false))
+                {
+                    result.AddRange(cursor.Current);
+                }
+            }
+
+            return result;
+        }
 
         public async Task<Scenario> ObtainScenario(ObjectId id)
         {
@@ -37,10 +53,10 @@ namespace OwnSpace.MotionScript.DataAccess
 
         public async Task AddOrUpdateScenario(Scenario scenario)
         {
-            await GetCollection().InsertOneAsync(scenario);
+            await GetCollection().InsertOneAsync(scenario).ConfigureAwait(false);
         }
 
-        public void RemoveScenario(ObjectId id)
+        public async Task RemoveScenario(ObjectId id)
         {
             throw new NotImplementedException();
         }

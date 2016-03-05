@@ -113,7 +113,6 @@
   <ItemGroup>
     <Content Include="Content\images\nancy-logo.png" />
     <Content Include="Content\scripts\app\models.js" />
-    <Content Include="Content\scripts\app\templates.html" />
     <Content Include="Content\scripts\app\templates\block.html" />
     <Content Include="Content\scripts\app\templates\layout.html" />
     <Content Include="Content\scripts\app\templates\scenario.html" />
@@ -172,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
-    <Folder Include="Content\scripts\app\views\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OwnSpace.MotionScript.DataAccess\OwnSpace.MotionScript.DataAccess.csproj">

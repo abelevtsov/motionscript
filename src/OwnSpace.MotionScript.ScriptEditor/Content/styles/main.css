@@ -98,6 +98,30 @@ body {
 }
 
 /* Blocks */
+.action {
+    text-transform: uppercase;
+}
+
+.character {
+    
+}
+
+.dialog {
+    
+}
+
+.parentetical {
+    
+}
+
+.transition {
+    
+}
+
+.shot {
+    
+}
+
 .text {
     text-transform: uppercase;
 }

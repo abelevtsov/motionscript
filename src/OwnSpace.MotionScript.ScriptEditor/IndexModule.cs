@@ -15,10 +15,12 @@ namespace OwnSpace.MotionScript.ScriptEditor
         {
             ScenarioRepository = scenarioRepository;
 
-            Get["/"] =
-                _ =>
+            Get["/"] = _ => View["index"];
+            Get["/scenario", runAsync: true] =
+                async (_, cts) =>
                 {
-                    return View["index"];
+                    var scenarios = await ScenarioRepository.ObtainScenarios().ConfigureAwait(false);
+                    return Response.AsJson(scenarios);
                 };
             Get["/scenario/{id}", runAsync: true] =
                 async (@params, cts) =>
@@ -30,7 +32,24 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
-                    await ScenarioRepository.AddOrUpdateScenario(scenario);
+                    await ScenarioRepository.AddOrUpdateScenario(scenario).ConfigureAwait(false);
+
+                    return View["index"];
+                };
+            Put["/scenario", runAsync: true] =
+                async (_, cts) =>
+                {
+                    var scenario = this.Bind<Scenario>();
+                    var sc = await ScenarioRepository.ObtainScenario(scenario.Id).ConfigureAwait(false);
+                    sc.Name = scenario.Name;
+                    await ScenarioRepository.AddOrUpdateScenario(sc).ConfigureAwait(false);
+
+                    return View["index"];
+                };
+            Delete["/scenario/{id}", runAsync: true] =
+                async (@params, cts) =>
+                {
+                    await ScenarioRepository.RemoveScenario(ObjectId.Parse((string)@params.id)).ConfigureAwait(false);
 
                     return View["index"];
                 };
