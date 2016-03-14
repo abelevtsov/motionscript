@@ -13,6 +13,7 @@
             marionette: "marionette/backbone.marionette",
             underscore: "underscore/underscore",
             jquery: "jquery/jquery",
+            "jquery-ui": "jquery-ui/jquery-ui",
             text: "requirejs-text/text"
         },
         shim: {

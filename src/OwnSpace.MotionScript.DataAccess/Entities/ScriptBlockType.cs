@@ -21,9 +21,9 @@
         Dialog,
 
         /// <summary>
-        /// Parentetical block
+        /// Parenthetical block
         /// </summary>
-        Parentetical,
+        Parenthetical,
 
         /// <summary>
         /// Transition block

@@ -1,10 +1,12 @@
-﻿define(["backbone", "marionette", "views", "models", "templates"], function(Backbone, Marionette, Views, Models, templates) {
+﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $, $ui) {
     var loadInitialData = function() {
-            return {
-                then: function (callback) {
-                    callback && callback();
-                }
-            };
+            $.get("/scenario/1").done(function(data) {
+                scenario = data;
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                alert("An error occured: " + textStatus);
+            }).always(function() {
+                app.start();
+            });
         },
         App = Marionette.Application.extend({
             initialize: function(options) {
@@ -33,7 +35,7 @@
             }),
             sidebarView = new Views.SidebarView({
                 vent: this.vent,
-                model: scenario
+                collection: scenario.get("scenes")
             }),
             appMainView = new Views.MainView({
                 vent: this.vent,
@@ -54,12 +56,22 @@
                 if (sidebarView.isDestroyed) {
                     sidebarView = new Views.SidebarView({
                         vent: this.vent,
-                        model: scenario
+                        collection: scenario.get("scenes")
                     });
                 }
 
                 layout.sidebarRegion.show(sidebarView);
             }
+
+            var effect = "slide",
+                options = { direction: "left" },
+                duration = 500;
+
+            $("#sidebar").toggle(effect, options, duration);
+        });
+
+        this.vent.on("scenario:changeBlock", function(e) {
+            console.log(e.target.value);
         });
     });
 
@@ -67,7 +79,6 @@
         appRegion: "#app"
     });
 
-    //loadInitialData().then(app.start);
-    app.start();
+    loadInitialData();
 });
 

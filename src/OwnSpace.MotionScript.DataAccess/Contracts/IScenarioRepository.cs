@@ -10,7 +10,7 @@ namespace OwnSpace.MotionScript.DataAccess.Contracts
     {
         Task<IEnumerable<Scenario>> ObtainScenarios();
 
-        Task<Scenario> ObtainScenario(ObjectId id);
+        Task<Scenario> ObtainScenario();
 
         Task AddOrUpdateScenario(Scenario scenario);
 

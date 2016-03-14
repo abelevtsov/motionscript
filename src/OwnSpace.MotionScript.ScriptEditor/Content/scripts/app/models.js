@@ -2,7 +2,7 @@
     var ScriptBlock = Backbone.Model.extend({
             defaults: {
                 text: "",
-                type: "text"
+                type: "action"
             }
         }),
         ScriptBlockCollection = Backbone.Collection.extend({
@@ -15,8 +15,7 @@
             }
         }),
         SceneCollection = Backbone.Collection.extend({
-            model: Scene,
-            url: "/scenes"
+            model: Scene
         }),
         Author = Backbone.Model.extend({
             defaults: {
@@ -37,8 +36,7 @@
                 name: "My first scenario",
                 version: "0.0.0.1",
                 scenes: new SceneCollection()
-            },
-            url: "/scenario"
+            }
         });
 
     return {

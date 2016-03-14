@@ -1,8 +1,8 @@
-﻿define(["marionette", "underscore", "templates", "models"], function(Marionette, _, templates, Models) {
+﻿define(["marionette", "underscore", "templates", "models", "jquery"], function(Marionette, _, templates, Models) {
     var HeaderView = Marionette.ItemView.extend({
             template: _.template(templates.header),
             events: {
-                "click #toggle-sidebar-command": "toggleSidebar"
+                "change #action-command": "doAction"
             },
             initialize: function(options) {
                 if (options) {
@@ -11,16 +11,36 @@
                     }
                 }
             },
-            toggleSidebar: function(e) {
+            doAction: function(e) {
                 if (this.vent) {
-                    this.vent.trigger("sidebar:toggle");
+                    this.vent.trigger("scenario:changeBlock", e);
                 }
             }
         }),
-        SidebarView = Marionette.ItemView.extend({
-            template: _.template(templates.sidebar),
+        NavView = Marionette.ItemView.extend({
+            template: _.template(templates.nav),
             events: {
-                "click #alert-command": "makeAlert"
+                "click .scenenav-list-link": "navigate"
+            },
+            initialize: function (options) {
+                if (options) {
+                    if (options.vent) {
+                        this.vent = options.vent;
+                    }
+                }
+            },
+            navigate: function (e) {
+                if (this.vent) {
+                    this.vent.trigger("sidebar:navigate");
+                }
+            }
+        }),
+        SidebarView = Marionette.CompositeView.extend({
+            template: _.template(templates.sidebar),
+            childView: NavView,
+            sort: false,
+            events: {
+                "click #toggle": "toggle"
             },
             initialize: function(options) {
                 if (options) {
@@ -29,8 +49,10 @@
                     }
                 }
             },
-            makeAlert: function(e) {
-                alert("I'm a sidebar!");
+            toggle: function(e) {
+                if (this.vent) {
+                    this.vent.trigger("sidebar:toggle");
+                }
             }
         }),
         TitleView = Marionette.ItemView.extend({
@@ -52,6 +74,11 @@
                         this.vent = options.vent;
                     }
                 }
+            },
+            onRender: function() {
+                this.$el = this.$el.children();
+                this.$el.unwrap();
+                this.setElement(this.$el);
             }
         }),
         SceneView = Marionette.CompositeView.extend({
@@ -89,8 +116,6 @@
                     }
                 }
 
-                this.collection.fetch({ reset: true });
-
                 this.listenTo(this.collection, "add", this.renderScene);
                 this.listenTo(this.collection, "reset", this.render);
             },
@@ -126,9 +151,9 @@
         AppLayout = Marionette.LayoutView.extend({
             template: _.template(templates.applayout),
             regions: {
-                mainRegion: "#main",
                 headerRegion: "#header",
-                sidebarRegion: "#sidebar"
+                sidebarRegion: "#sidebar",
+                mainRegion: "#main"
             }
         });
 

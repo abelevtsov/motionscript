@@ -25,7 +25,8 @@ namespace OwnSpace.MotionScript.ScriptEditor
             Get["/scenario/{id}", runAsync: true] =
                 async (@params, cts) =>
                 {
-                    var scenario = await ScenarioRepository.ObtainScenario(ObjectId.Parse((string)@params.id)).ConfigureAwait(false);
+                    var scenario = await ScenarioRepository.ObtainScenario().ConfigureAwait(false);
+                    scenario = new Scenario();
                     return Response.AsJson(scenario);
                 };
             Post["/scenario", runAsync: true] =
@@ -40,7 +41,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
-                    var sc = await ScenarioRepository.ObtainScenario(scenario.Id).ConfigureAwait(false);
+                    var sc = await ScenarioRepository.ObtainScenario().ConfigureAwait(false);
                     sc.Name = scenario.Name;
                     await ScenarioRepository.AddOrUpdateScenario(sc).ConfigureAwait(false);
 
