@@ -1,4 +1,4 @@
-﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $, $ui) {
+﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $) {
     var loadInitialData = function() {
             $.get("/scenario/1").done(function(data) {
                 scenario = data;
@@ -19,9 +19,14 @@
 
         app = new App(),
         author = new Models.Author({}),
-        block = new Models.ScriptBlock({ text: "Charlie tear down slowly" }),
         scene = new Models.Scene({
-            blocks: new Models.ScriptBlocks([block])
+            blocks: new Models.ScriptBlocks([
+                new Models.ScriptBlock({
+                    text: "SCENE 1",
+                    type: "sceneheading"
+                }), new Models.ScriptBlock({
+                     text: "Charlie tear down slowly"
+                })])
         }),
         scenario = new Models.Scenario({
             author: author,
@@ -68,10 +73,6 @@
                 duration = 500;
 
             $("#sidebar").toggle(effect, options, duration);
-        });
-
-        this.vent.on("scenario:changeBlock", function(e) {
-            console.log(e.target.value);
         });
     });
 

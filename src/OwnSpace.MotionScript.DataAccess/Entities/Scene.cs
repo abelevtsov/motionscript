@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using MongoDB.Bson;
 
@@ -13,7 +14,13 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
 
         public ObjectId Id { get; set; }
 
-        public string Heading { get; set; }
+        public string Heading
+        {
+            get
+            {
+                return Blocks.Any() ? Blocks.First().Text : string.Empty;
+            }
+        }
 
         public IList<ScriptBlock> Blocks { get; set; }
     }

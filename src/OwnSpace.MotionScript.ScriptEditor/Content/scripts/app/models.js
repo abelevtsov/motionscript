@@ -2,7 +2,8 @@
     var ScriptBlock = Backbone.Model.extend({
             defaults: {
                 text: "",
-                type: "action"
+                type: "action",
+                active: false
             }
         }),
         ScriptBlockCollection = Backbone.Collection.extend({
@@ -10,7 +11,7 @@
         }),
         Scene = Backbone.Model.extend({
             defaults: {
-                heading: "SCENE 1",
+                heading: "",
                 blocks: new ScriptBlockCollection()
             }
         }),
@@ -36,6 +37,22 @@
                 name: "My first scenario",
                 version: "0.0.0.1",
                 scenes: new SceneCollection()
+            },
+            getActiveBlock: function() {
+                var scenes = this.get("scenes");
+                for (var i = scenes.length; i--;) {
+                    var blocks = scenes.models[i].get("blocks");
+                    for (var j = blocks.length; j--;) {
+                        var block = blocks.models[j],
+                            active = block.get("active");
+
+                        if (active) {
+                            return block;
+                        }
+                    }
+                }
+
+                return null;
             }
         });
 
