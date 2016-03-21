@@ -6,6 +6,11 @@
     public enum ScriptBlockType
     {
         /// <summary>
+        /// SceneHeading block
+        /// </summary>
+        SceneHeading,
+
+        /// <summary>
         /// Action block
         /// </summary>
         Action,
@@ -21,9 +26,9 @@
         Dialog,
 
         /// <summary>
-        /// Parentetical block
+        /// Parenthetical block
         /// </summary>
-        Parentetical,
+        Parenthetical,
 
         /// <summary>
         /// Transition block

@@ -113,8 +113,10 @@
   <ItemGroup>
     <Content Include="Content\images\nancy-logo.png" />
     <Content Include="Content\scripts\app\models.js" />
+    <Content Include="Content\scripts\app\scenarioflow.js" />
     <Content Include="Content\scripts\app\templates\block.html" />
     <Content Include="Content\scripts\app\templates\layout.html" />
+    <Content Include="Content\scripts\app\templates\nav.html" />
     <Content Include="Content\scripts\app\templates\scenario.html" />
     <Content Include="Content\scripts\app\templates\scene.html" />
     <Content Include="Content\scripts\app\templates\title.html" />

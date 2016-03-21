@@ -2,7 +2,13 @@
     var ScriptBlock = Backbone.Model.extend({
             defaults: {
                 text: "",
-                type: "text"
+                type: "action",
+                active: false
+            },
+            initialize: function() {
+                // if (this.isNew()) {
+                //     this.set("active", true);
+                // }
             }
         }),
         ScriptBlockCollection = Backbone.Collection.extend({
@@ -10,13 +16,12 @@
         }),
         Scene = Backbone.Model.extend({
             defaults: {
-                heading: "SCENE 1",
+                heading: "",
                 blocks: new ScriptBlockCollection()
             }
         }),
         SceneCollection = Backbone.Collection.extend({
-            model: Scene,
-            url: "/scenes"
+            model: Scene
         }),
         Author = Backbone.Model.extend({
             defaults: {
@@ -38,7 +43,22 @@
                 version: "0.0.0.1",
                 scenes: new SceneCollection()
             },
-            url: "/scenario"
+            getActiveBlock: function() {
+                var scenes = this.get("scenes");
+                for (var i = scenes.length; i--;) {
+                    var blocks = scenes.models[i].get("blocks");
+                    for (var j = blocks.length; j--;) {
+                        var block = blocks.models[j],
+                            active = block.get("active");
+
+                        if (active) {
+                            return block;
+                        }
+                    }
+                }
+
+                return null;
+            }
         });
 
     return {

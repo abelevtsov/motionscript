@@ -33,9 +33,9 @@ namespace OwnSpace.MotionScript.DataAccess
             return result;
         }
 
-        public async Task<Scenario> ObtainScenario(ObjectId id)
+        public async Task<Scenario> ObtainScenario()
         {
-            var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id);
+            var filter = Builders<Scenario>.Filter.Eq(it => it.Version, "0.0.0.1");
             using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
             {
                 while (await cursor.MoveNextAsync().ConfigureAwait(false))

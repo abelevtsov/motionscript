@@ -6,6 +6,7 @@
             templates: "../app/templates/templates",
             views: "../app/views",
             models: "../app/models",
+            scenarioflow: "../app/scenarioflow",
             backbone: "backbone/backbone",
             "backbone.babysitter": "backbone.babysitter/backbone.babysitter",
             "backbone.wreqr": "backbone.wreqr/backbone.wreqr",
@@ -13,6 +14,7 @@
             marionette: "marionette/backbone.marionette",
             underscore: "underscore/underscore",
             jquery: "jquery/jquery",
+            "jquery-ui": "jquery-ui/jquery-ui",
             text: "requirejs-text/text"
         },
         shim: {
