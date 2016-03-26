@@ -35,8 +35,8 @@
         },
         empty = {
             sceneheading: {
-                next: "action",
-                inPlace: false
+                next: "sceneheading",
+                inPlace: true
             },
             action: {
                 next: "sceneheading",

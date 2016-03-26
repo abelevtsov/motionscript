@@ -1,20 +1,43 @@
 ﻿define(["marionette", "underscore", "templates", "models", "jquery", "scenarioflow"], function (Marionette, _, templates, Models, $, scenarioflow) {
-    var HeaderView = Marionette.ItemView.extend({
+    var createCaretPlacer = function(atStart) {
+            return function(el) {
+                el.focus();
+                if (window.getSelection && document.createRange) {
+                    var range = document.createRange();
+                    range.selectNodeContents(el);
+                    range.collapse(atStart);
+                    var sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                } else if (document.body.createTextRange) {
+                    var textRange = document.body.createTextRange();
+                    textRange.moveToElementText(el);
+                    textRange.collapse(atStart);
+                    textRange.select();
+                }
+            };
+        },
+        placeCaretAtEnd = createCaretPlacer(false),
+        HeaderView = Marionette.ItemView.extend({
             template: _.template(templates.header),
             events: {
-                "change #action-command": "changeBlock" // ToDo: use buttons set instead select for more convenient usage
+                "change #action-command": "changeBlock" // ToDo: use separate buttons instead select for more convenient usage
             },
             initialize: function(options) {
                 if (options) {
                     if (options.vent) {
                         this.vent = options.vent;
+                        this.vent.on("header:setAction", this.setCurrentAction, this);
                     }
                 }
+            },
+            setCurrentAction: function(value) {
+                $("#action-command").val(value);
             },
             changeBlock: function(e) {
                 var activeBlock = this.model.getActiveBlock();
                 if (activeBlock) {
-                    activeBlock.set({ type: e.target.value.toLowerCase() });
+                    activeBlock.set({ type: e.target.value });
                 }
             }
         }),
@@ -41,7 +64,8 @@
             childView: NavView,
             sort: false,
             events: {
-                "click #toggle": "toggle"
+                "click #toggle": "toggle",
+                "click .scenenav-list-link": "navigate"
             },
             initialize: function(options) {
                 if (options) {
@@ -49,6 +73,9 @@
                         this.vent = options.vent;
                     }
                 }
+            },
+            navigate: function(e) {
+                this.collection.at(0).get("blocks").at(0).set({ active: true });
             },
             toggle: function(e) {
                 if (this.vent) {
@@ -82,12 +109,14 @@
                 this.model.on("change:type", this.render, this);
             },
             setActive: function(e) {
-                if (this.model.get("active")) {
+                var model = this.model;
+                if (model.get("active")) {
                     return;
                 }
 
                 this.vent.trigger("scenario:resetActive");
-                this.model.set({ active: true });
+                model.set({ active: true });
+                this.vent.trigger("header:setAction", model.get("type"));
             }
         }),
         SceneView = Marionette.CompositeView.extend({
@@ -100,7 +129,7 @@
                 }
             },
             events: {
-                "click .delete": "deleteScene",
+                "click .delete": "deleteScene", // ToDo: add "X" button to the right of block for this purposes
                 "keypress p.block": "addNew",
                 "keyup p.block": "processBlock"
             },
@@ -128,7 +157,9 @@
                     collection = this.collection,
                     activeBlock = collection.findWhere("active"),
                     activeBlockIndex = collection.indexOf(activeBlock),
-                    $current = $(e.target);
+                    $current = $(e.target),
+                    $block = $current.parent(),
+                    $prev = $block.prev();
 
                 if (e.which === enterKey) {
                     e.preventDefault();
@@ -143,9 +174,11 @@
                         collection.remove(collection.at(activeBlockIndex));
 
                         collection.add(model, { at: activeBlockIndex });
+                        this.vent.trigger("header:setAction", model.get("type"));
+                        $prev.next().find("p.block").focus();
                     } else {
                         collection.add(model, { at: activeBlockIndex + 1 });
-                        $current.parent().next().find("p.block").focus();
+                        $block.next().find("p.block").focus();
                     }
                 }
             },
@@ -164,9 +197,14 @@
                     var $prev = $current.parent().prev().find("p.block");
 
                     collection.remove(activeBlock);
-                    collection.at(activeBlockIndex - 1).set({ active: true });
-                    $prev.text($prev.text());
+                    activeBlock = collection.at(activeBlockIndex - 1);
+                    activeBlock.set({ active: true });
                     $prev.focus();
+                    if ($prev.length) {
+                        placeCaretAtEnd($prev[0]);
+                    }
+
+                    this.vent.trigger("header:setAction", activeBlock.get("type"));
                 } else {
                     activeBlock.set({ text: $current.text() });
                 }
