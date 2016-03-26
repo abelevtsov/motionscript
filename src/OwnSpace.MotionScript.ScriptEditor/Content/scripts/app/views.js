@@ -125,8 +125,9 @@
             },
             addNew: function(e) {
                 var enterKey = 13,
-                    activeBlock = this.collection.findWhere("active"),
-                    activeBlockIndex = this.collection.indexOf(activeBlock),
+                    collection = this.collection,
+                    activeBlock = collection.findWhere("active"),
+                    activeBlockIndex = collection.indexOf(activeBlock),
                     $current = $(e.target);
 
                 if (e.which === enterKey) {
@@ -139,19 +140,20 @@
 
                     var model = new Models.ScriptBlock(data);
                     if (nextType.inPlace) {
-                        this.collection.remove(this.collection.at(activeBlockIndex));
+                        collection.remove(collection.at(activeBlockIndex));
 
-                        this.collection.add(model, { at: activeBlockIndex });
+                        collection.add(model, { at: activeBlockIndex });
                     } else {
-                        this.collection.add(model, { at: activeBlockIndex + 1 });
+                        collection.add(model, { at: activeBlockIndex + 1 });
                         $current.parent().next().find("p.block").focus();
                     }
                 }
             },
             processBlock: function(e) {
                 var backspaceKey = 8,
-                    activeBlock = this.collection.findWhere("active"),
-                    activeBlockIndex = this.collection.indexOf(activeBlock),
+                    collection = this.collection,
+                    activeBlock = collection.findWhere("active"),
+                    activeBlockIndex = collection.indexOf(activeBlock),
                     $current = $(e.target);
 
                 if (e.which === backspaceKey) {
@@ -161,8 +163,9 @@
 
                     var $prev = $current.parent().prev().find("p.block");
 
-                    this.collection.remove(activeBlock);
-                    this.collection.at(activeBlockIndex - 1).set({ active: true });
+                    collection.remove(activeBlock);
+                    collection.at(activeBlockIndex - 1).set({ active: true });
+                    $prev.text($prev.text());
                     $prev.focus();
                 } else {
                     activeBlock.set({ text: $current.text() });
