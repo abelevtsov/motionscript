@@ -1,6 +1,10 @@
 ﻿body {
     margin: 0;
     background-color: #f6f6f6;
+    color: #000000;
+    background: transparent;
+    font-family: Courier New, Helvetica, Arial, Sans-Serif;
+    font-size: 12pt;
 }
 
 .row,
@@ -48,7 +52,7 @@
 
 /* Specific pane configuration */
 .header.row {
-    height: 75px;
+    height: 95px;
     background: #f6f6f6;
 }
 
@@ -57,14 +61,7 @@
 }
 
 .left.col {
-    background-color: #008000;
-}
-
-body {
-    color: #000000;
-    background: transparent;
-    font-family: Courier New, Helvetica, Arial, Sans-Serif;
-    font-size: 12pt;
+    background-color: #808080;
 }
 
 .header,
@@ -73,24 +70,24 @@ body {
 }
 
 .left.col {
-    top: 75px;
+    top: 95px;
     width: 250px;
 }
 
 .right.col {
-    top: 75px;
+    top: 95px;
     left: 250px;
     right: 0;
 }
 
 .right.col .header.row {
-    height: 75px;
+    height: 95px;
     line-height: 75px;
-    background-color: #ff0000;
+    background-color: #828281;
 }
 
 .body.row {
-    top: 75px;
+    top: 95px;
     bottom: 50px;
 }
 
@@ -98,6 +95,13 @@ body {
     height: 50px;
     bottom: 0;
     line-height: 50px;
+}
+
+#action-command {
+    margin: 4px;
+    background-color: #00bfff;
+    width: 200px;
+    height: 20px;
 }
 
 #workplace {

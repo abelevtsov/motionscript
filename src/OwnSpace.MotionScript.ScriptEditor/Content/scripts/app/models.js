@@ -1,9 +1,14 @@
-﻿define(["backbone"], function(Backbone) {
+﻿define(["backbone", "underscore"], function(Backbone, _) {
     var ScriptBlock = Backbone.Model.extend({
             defaults: {
                 text: "",
                 type: "action",
                 active: false
+            },
+            initialize: function() {
+                // if (this.isNew()) {
+                //     this.set("active", true);
+                // }
             }
         }),
         ScriptBlockCollection = Backbone.Collection.extend({
@@ -40,13 +45,12 @@
             },
             getActiveBlock: function() {
                 var scenes = this.get("scenes");
+                // ToDo: improve search - hold active block index in dedicated place
                 for (var i = scenes.length; i--;) {
                     var blocks = scenes.models[i].get("blocks");
                     for (var j = blocks.length; j--;) {
-                        var block = blocks.models[j],
-                            active = block.get("active");
-
-                        if (active) {
+                        var block = blocks.models[j];
+                        if (block.get("active")) {
                             return block;
                         }
                     }

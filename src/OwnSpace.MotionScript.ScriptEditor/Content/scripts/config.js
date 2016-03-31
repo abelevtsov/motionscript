@@ -6,6 +6,7 @@
             templates: "../app/templates/templates",
             views: "../app/views",
             models: "../app/models",
+            scenarioflow: "../app/scenarioflow",
             backbone: "backbone/backbone",
             "backbone.babysitter": "backbone.babysitter/backbone.babysitter",
             "backbone.wreqr": "backbone.wreqr/backbone.wreqr",

@@ -1,20 +1,43 @@
-﻿define(["marionette", "underscore", "templates", "models", "jquery"], function(Marionette, _, templates, Models) {
-    var HeaderView = Marionette.ItemView.extend({
+﻿define(["marionette", "underscore", "templates", "models", "jquery", "scenarioflow"], function (Marionette, _, templates, Models, $, scenarioflow) {
+    var createCaretPlacer = function(atStart) {
+            return function(el) {
+                el.focus();
+                if (window.getSelection && document.createRange) {
+                    var range = document.createRange();
+                    range.selectNodeContents(el);
+                    range.collapse(atStart);
+                    var sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                } else if (document.body.createTextRange) {
+                    var textRange = document.body.createTextRange();
+                    textRange.moveToElementText(el);
+                    textRange.collapse(atStart);
+                    textRange.select();
+                }
+            };
+        },
+        placeCaretAtEnd = createCaretPlacer(false),
+        HeaderView = Marionette.ItemView.extend({
             template: _.template(templates.header),
             events: {
-                "change #action-command": "changeBlock" // ToDo: use buttons set instead select for more convenient usage
+                "change #action-command": "changeBlock" // ToDo: use separate buttons instead select for more convenient usage
             },
             initialize: function(options) {
                 if (options) {
                     if (options.vent) {
                         this.vent = options.vent;
+                        this.vent.on("header:setAction", this.setCurrentAction, this);
                     }
                 }
+            },
+            setCurrentAction: function(value) {
+                $("#action-command").val(value);
             },
             changeBlock: function(e) {
                 var activeBlock = this.model.getActiveBlock();
                 if (activeBlock) {
-                    activeBlock.set({ type: e.target.value.toLowerCase() });
+                    activeBlock.set({ type: e.target.value });
                 }
             }
         }),
@@ -41,7 +64,8 @@
             childView: NavView,
             sort: false,
             events: {
-                "click #toggle": "toggle"
+                "click #toggle": "toggle",
+                "click .scenenav-list-link": "navigate"
             },
             initialize: function(options) {
                 if (options) {
@@ -49,6 +73,9 @@
                         this.vent = options.vent;
                     }
                 }
+            },
+            navigate: function(e) {
+                this.collection.at(0).get("blocks").at(0).set({ active: true });
             },
             toggle: function(e) {
                 if (this.vent) {
@@ -70,7 +97,7 @@
             template: _.template(templates.block),
             tagName: "block",
             events: {
-                "click p.block": "setActive"
+                "focusin p.block": "setActive"
             },
             initialize: function(options) {
                 if (options) {
@@ -82,8 +109,14 @@
                 this.model.on("change:type", this.render, this);
             },
             setActive: function(e) {
+                var model = this.model;
+                if (model.get("active")) {
+                    return;
+                }
+
                 this.vent.trigger("scenario:resetActive");
-                this.model.set({ active: true });
+                model.set({ active: true });
+                this.vent.trigger("header:setAction", model.get("type"));
             }
         }),
         SceneView = Marionette.CompositeView.extend({
@@ -96,8 +129,9 @@
                 }
             },
             events: {
-                "click .add": "addBlock",
-                "click .delete": "deleteScene"
+                "click .delete": "deleteScene", // ToDo: add "X" button to the right of block for this purposes
+                "keypress p.block": "addNew",
+                "keyup p.block": "processBlock"
             },
             initialize: function(options) {
                 if (options) {
@@ -107,19 +141,73 @@
                 }
 
                 this.collection = this.model.get("blocks");
+                this.listenTo(this.collection, "add", this.renderBlock);
+                this.listenTo(this.collection, "reset", this.render);
             },
-            getNextType: function() {
-                // ToDo: use flow algorithm
-                return "action";
+            renderBlock: function() {
+                console.log("SceneView:renderBlock");
             },
-            addBlock: function(e) {
-                e.preventDefault();
+            getNextType: function(haveText, type) {
+                var flow = haveText ? scenarioflow.text : scenarioflow.empty;
 
-                var data = {
-                    type: this.getNextType()
-                };
+                return flow[type];
+            },
+            addNew: function(e) {
+                var enterKey = 13,
+                    collection = this.collection,
+                    activeBlock = collection.findWhere("active"),
+                    activeBlockIndex = collection.indexOf(activeBlock),
+                    $current = $(e.target),
+                    $block = $current.parent(),
+                    $prev = $block.prev();
 
-                this.collection.add(new Models.ScriptBlock(data));
+                if (e.which === enterKey) {
+                    e.preventDefault();
+                    var haveText = !!$current.text(),
+                        nextType = this.getNextType(haveText, activeBlock.get("type")),
+                        data = {
+                            type: nextType.next
+                        };
+
+                    var model = new Models.ScriptBlock(data);
+                    if (nextType.inPlace) {
+                        collection.remove(collection.at(activeBlockIndex));
+
+                        collection.add(model, { at: activeBlockIndex });
+                        this.vent.trigger("header:setAction", model.get("type"));
+                        $prev.next().find("p.block").focus();
+                    } else {
+                        collection.add(model, { at: activeBlockIndex + 1 });
+                        $block.next().find("p.block").focus();
+                    }
+                }
+            },
+            processBlock: function(e) {
+                var backspaceKey = 8,
+                    collection = this.collection,
+                    activeBlock = collection.findWhere("active"),
+                    activeBlockIndex = collection.indexOf(activeBlock),
+                    $current = $(e.target);
+
+                if (e.which === backspaceKey) {
+                    if ($current.text()) {
+                        return;
+                    }
+
+                    var $prev = $current.parent().prev().find("p.block");
+
+                    collection.remove(activeBlock);
+                    activeBlock = collection.at(activeBlockIndex - 1);
+                    activeBlock.set({ active: true });
+                    $prev.focus();
+                    if ($prev.length) {
+                        placeCaretAtEnd($prev[0]);
+                    }
+
+                    this.vent.trigger("header:setAction", activeBlock.get("type"));
+                } else {
+                    activeBlock.set({ text: $current.text() });
+                }
             },
             deleteScene: function() {
                 this.model.destroy();
@@ -164,7 +252,7 @@
                 }
             },
             renderScene: function(scene) {
-                console.log(scene);
+                console.log("renderScene" + scene.toJSON());
             }
         }),
         MainView = Marionette.LayoutView.extend({
