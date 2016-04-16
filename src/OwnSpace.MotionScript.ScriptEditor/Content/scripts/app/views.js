@@ -38,6 +38,9 @@
                 var activeBlock = this.model.getActiveBlock();
                 if (activeBlock) {
                     activeBlock.set({ type: e.target.value });
+                    var $activeView = $("p.block[active='true']");
+                    $activeView.focus();
+                    placeCaretAtEnd($activeView[0]);
                 }
             }
         }),
@@ -249,6 +252,8 @@
                 var activeBlock = this.model.getActiveBlock();
                 if (activeBlock) {
                     activeBlock.set({ active: false });
+                    var $activeView = $("p.block[active='true']");
+                    $activeView.attr("active", false);
                 }
             },
             renderScene: function(scene) {
