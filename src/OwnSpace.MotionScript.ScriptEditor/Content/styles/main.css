@@ -97,6 +97,29 @@
     line-height: 50px;
 }
 
+/* Nav */
+#sidebar > div > ul {
+    counter-reset: li;
+    list-style-type: none;
+    position: relative;
+}
+
+#sidebar > div > ul > li {
+    padding: 10px;
+    margin: 4px;
+    float: left;
+}
+
+#sidebar > div > ul > li:before {
+    counter-increment: li;
+    content: counter(li, decimal)".";
+    position: absolute;
+    left: 2em;
+    text-align: right;
+    text-decoration: underline;
+    color: #80c622;
+}
+
 #action-command {
     margin: 4px;
     background-color: #00bfff;
@@ -112,6 +135,15 @@
 
 #main {
     background-color: #f6f6f6;
+}
+
+.clear {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 /* Blocks */
