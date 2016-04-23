@@ -1,4 +1,4 @@
-﻿define(["marionette", "underscore", "templates", "models", "jquery", "scenarioflow"], function (Marionette, _, templates, Models, $, scenarioflow) {
+﻿define(["marionette", "underscore", "templates", "models", "jquery", "scenarioflow"], function(Marionette, _, templates, Models, $, scenarioflow) {
     var createCaretPlacer = function(atStart) {
             if (window.getSelection && document.createRange) {
                 return function(el) {
@@ -64,7 +64,7 @@
                     }
                 }
             },
-            navigate: function (e) {
+            navigate: function(e) {
                 if (this.vent) {
                     this.vent.trigger("sidebar:navigate");
                 }
@@ -296,7 +296,7 @@
             },
             addScene: function(data, currentScene, blocksToMove) {
                 var collection = this.collection,
-                    headingBlock = new Models.ScriptBlock({ type: data.type, text: "SCENE " + ++collection.length }),
+                    headingBlock = new Models.ScriptBlock({ type: data.type, text: "SCENE " + ++collection.length }), // ToDo: only for test purposes - remove
                     currentSceneIndex = collection.indexOf(currentScene);
 
                 blocksToMove.unshift(headingBlock);

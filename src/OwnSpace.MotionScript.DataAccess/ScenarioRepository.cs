@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using MongoDB.Bson;
 using MongoDB.Driver;
 using OwnSpace.MotionScript.DataAccess.Contracts;
 using OwnSpace.MotionScript.DataAccess.Entities;
@@ -33,9 +32,9 @@ namespace OwnSpace.MotionScript.DataAccess
             return result;
         }
 
-        public async Task<Scenario> ObtainScenario()
+        public async Task<Scenario> ObtainScenario(long id)
         {
-            var filter = Builders<Scenario>.Filter.Eq(it => it.Version, "0.0.0.1");
+            var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id);
             using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
             {
                 while (await cursor.MoveNextAsync().ConfigureAwait(false))
@@ -56,7 +55,7 @@ namespace OwnSpace.MotionScript.DataAccess
             await GetCollection().InsertOneAsync(scenario).ConfigureAwait(false);
         }
 
-        public async Task RemoveScenario(ObjectId id)
+        public async Task RemoveScenario(long id)
         {
             throw new NotImplementedException();
         }

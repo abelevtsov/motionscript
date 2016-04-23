@@ -1,7 +1,23 @@
 ﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $) {
-    var loadInitialData = function() {
+    var author = new Models.Author({}),
+        scene = new Models.Scene({
+            blocks: new Models.ScriptBlocks([
+                new Models.ScriptBlock({
+                    text: "SCENE 1",
+                    type: "sceneheading"
+                }), new Models.ScriptBlock({
+                    text: "Charlie tear down slowly"
+                })])
+        }),
+        scenario,
+        loadInitialData = function() {
             $.get("/scenario/1").done(function(data) {
-                scenario = data;
+                scenario =
+                    //data ||
+                    new Models.Scenario({
+                        author: author,
+                        scenes: new Models.Scenes([scene])
+                    });
             }).fail(function(jqXHR, textStatus, errorThrown) {
                 alert("An error occured: " + textStatus);
             }).always(function() {
@@ -17,21 +33,7 @@
             }
         }),
 
-        app = new App(),
-        author = new Models.Author({}),
-        scene = new Models.Scene({
-            blocks: new Models.ScriptBlocks([
-                new Models.ScriptBlock({
-                    text: "SCENE 1",
-                    type: "sceneheading"
-                }), new Models.ScriptBlock({
-                     text: "Charlie tear down slowly"
-                })])
-        }),
-        scenario = new Models.Scenario({
-            author: author,
-            scenes: new Models.Scenes([scene])
-        });
+        app = new App();
 
     app.addInitializer(function(options) {
         var appHeaderView = new Views.HeaderView({

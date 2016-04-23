@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using MongoDB.Bson;
 using OwnSpace.MotionScript.DataAccess.Entities;
 
 namespace OwnSpace.MotionScript.DataAccess.Contracts
@@ -10,10 +9,10 @@ namespace OwnSpace.MotionScript.DataAccess.Contracts
     {
         Task<IEnumerable<Scenario>> ObtainScenarios();
 
-        Task<Scenario> ObtainScenario();
+        Task<Scenario> ObtainScenario(long id);
 
         Task AddOrUpdateScenario(Scenario scenario);
 
-        Task RemoveScenario(ObjectId id);
+        Task RemoveScenario(long id);
     }
 }

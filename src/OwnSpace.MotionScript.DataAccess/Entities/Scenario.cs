@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using MongoDB.Bson;
-
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
     public class Scenario
@@ -11,7 +9,7 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
             Scenes = new List<Scene>();
         }
 
-        public ObjectId Id { get; set; }
+        public long Id { get; set; }
 
         public Author Author { get; set; }
 

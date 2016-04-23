@@ -1,5 +1,4 @@
 ﻿using Castle.Core.Logging;
-using MongoDB.Bson;
 using Nancy;
 using Nancy.ModelBinding;
 using OwnSpace.MotionScript.DataAccess.Contracts;
@@ -22,12 +21,11 @@ namespace OwnSpace.MotionScript.ScriptEditor
                     var scenarios = await ScenarioRepository.ObtainScenarios().ConfigureAwait(false);
                     return Response.AsJson(scenarios);
                 };
-            Get["/scenario/{id}", runAsync: true] =
-                async (@params, cts) =>
+            Get["/scenario/{id:long}", runAsync: true] =
+                async (parameters, cts) =>
                 {
-                    var scenario = await ScenarioRepository.ObtainScenario().ConfigureAwait(false);
-                    scenario = new Scenario();
-                    return Response.AsJson(scenario);
+                    var scenario = await ScenarioRepository.ObtainScenario(parameters.id).ConfigureAwait(false) as Scenario;
+                    return scenario == null ? null : Response.AsJson(scenario);
                 };
             Post["/scenario", runAsync: true] =
                 async (_, cts) =>
@@ -41,16 +39,16 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
-                    var sc = await ScenarioRepository.ObtainScenario().ConfigureAwait(false);
+                    var sc = await ScenarioRepository.ObtainScenario(scenario.Id).ConfigureAwait(false);
                     sc.Name = scenario.Name;
                     await ScenarioRepository.AddOrUpdateScenario(sc).ConfigureAwait(false);
 
                     return View["index"];
                 };
-            Delete["/scenario/{id}", runAsync: true] =
-                async (@params, cts) =>
+            Delete["/scenario/{id:long}", runAsync: true] =
+                async (parameters, cts) =>
                 {
-                    await ScenarioRepository.RemoveScenario(ObjectId.Parse((string)@params.id)).ConfigureAwait(false);
+                    await ScenarioRepository.RemoveScenario(parameters.id).ConfigureAwait(false);
 
                     return View["index"];
                 };
