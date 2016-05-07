@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
     public class Author
@@ -13,6 +15,7 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
 
         public string MiddleName { get; set; }
 
+        [BsonIgnoreIfNull]
         public string FullName
         {
             get
@@ -21,12 +24,14 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
             }
         }
 
+        [BsonIgnoreIfNull]
         public DateTime? BirthDate { get; set; }
 
         [Required(ErrorMessage = "Email can't be empty")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Email is not valid")]
         public string Email { get; set; }
 
+        [BsonIgnoreIfNull]
         public string Phone { get; set; }
 
         public override string ToString()

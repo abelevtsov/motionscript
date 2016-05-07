@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using MongoDB.Bson;
 using MongoDB.Driver;
 using OwnSpace.MotionScript.DataAccess.Contracts;
 using OwnSpace.MotionScript.DataAccess.Entities;
@@ -32,7 +33,7 @@ namespace OwnSpace.MotionScript.DataAccess
             return result;
         }
 
-        public async Task<Scenario> ObtainScenario(long id)
+        public async Task<Scenario> ObtainScenario(ObjectId id)
         {
             var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id);
             using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
@@ -50,12 +51,33 @@ namespace OwnSpace.MotionScript.DataAccess
             return null;
         }
 
-        public async Task AddOrUpdateScenario(Scenario scenario)
+        public async Task<Scenario> AddOrUpdateScenario(Scenario scenario)
         {
-            await GetCollection().InsertOneAsync(scenario).ConfigureAwait(false);
+            var collection = GetCollection();
+            if (scenario.Id != ObjectId.Empty)
+            {
+                await collection
+                    .ReplaceOneAsync(
+                        it => it.Id == scenario.Id,
+                        scenario,
+                        new UpdateOptions
+                            {
+                                IsUpsert = true
+                            })
+                    .ConfigureAwait(false);
+            }
+            else
+            {
+                scenario.Id = ObjectId.GenerateNewId(DateTime.UtcNow);
+                await collection.InsertOneAsync(scenario).ConfigureAwait(false);
+                var result = await collection.FindAsync(it => it.Id == scenario.Id).ConfigureAwait(false);
+                return await result.FirstAsync().ConfigureAwait(false);
+            }
+
+            return scenario;
         }
 
-        public async Task RemoveScenario(long id)
+        public async Task RemoveScenario(ObjectId id)
         {
             throw new NotImplementedException();
         }

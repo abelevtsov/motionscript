@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
@@ -12,8 +12,7 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
             Blocks = new List<ScriptBlock>();
         }
 
-        public ObjectId Id { get; set; }
-
+        [BsonIgnoreIfNull]
         public string Heading
         {
             get

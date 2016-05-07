@@ -25,6 +25,23 @@
             };
         },
         placeCaretAtEnd = createCaretPlacer(false),
+        RibbonView = Marionette.ItemView.extend({
+            template: _.template(templates.ribbon),
+            events: {
+                "click #save": "save"
+            },
+            initialize: function (options) {
+                if (options) {
+                    if (options.vent) {
+                        this.vent = options.vent;
+                    }
+                }
+            },
+            save: function(e) {
+                e.preventDefault();
+                this.vent.trigger("scenario:save");
+            }
+        }),
         HeaderView = Marionette.ItemView.extend({
             template: _.template(templates.header),
             events: {
@@ -288,6 +305,7 @@
                         this.vent.on("scenario:resetActive", this.resetActive, this);
                         this.vent.on("scenario:addScene", this.addScene, this);
                         this.vent.on("scenario:removeScene", this.removeScene, this);
+                        this.vent.on("scenario:save", this.save, this);
                     }
                 }
 
@@ -319,6 +337,9 @@
             },
             renderScene: function(scene) {
                 console.log("renderScene: " + scene.toJSON());
+            },
+            save: function() {
+                this.model.save();
             }
         }),
         MainView = Marionette.LayoutView.extend({
@@ -351,6 +372,7 @@
         AppLayout = Marionette.LayoutView.extend({
             template: _.template(templates.applayout),
             regions: {
+                ribbonRegion: "#ribbon",
                 headerRegion: "#header",
                 sidebarRegion: "#sidebar",
                 mainRegion: "#main"
@@ -358,6 +380,7 @@
         });
 
     return {
+        RibbonView: RibbonView,
         HeaderView: HeaderView,
         SidebarView: SidebarView,
         MainView: MainView,

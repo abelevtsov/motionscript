@@ -1,28 +1,32 @@
 ﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $) {
-    var author = new Models.Author({}),
-        scene = new Models.Scene({
-            blocks: new Models.ScriptBlocks([
-                new Models.ScriptBlock({
-                    text: "SCENE 1",
-                    type: "sceneheading"
-                }), new Models.ScriptBlock({
-                    text: "Charlie tear down slowly"
-                })])
-        }),
-        scenario,
+    var scenario,
         loadInitialData = function() {
-            $.get("/scenario/1").done(function(data) {
+            var currentId = $("#currentId").text();
+            if (!currentId) {
+                var author = new Models.Author({}),
+                    scene = new Models.Scene({
+                        blocks: new Models.ScriptBlocks([
+                            new Models.ScriptBlock({
+                                text: "SCENE 1",
+                                type: "sceneheading"
+                            })
+                        ])
+                    });
                 scenario =
-                    //data ||
                     new Models.Scenario({
                         author: author,
                         scenes: new Models.Scenes([scene])
                     });
-            }).fail(function(jqXHR, textStatus, errorThrown) {
-                alert("An error occured: " + textStatus);
-            }).always(function() {
                 app.start();
-            });
+            } else {
+                $.get("/scenario/" + currentId).done(function(data) {
+                    scenario = data;
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert("An error occured: " + textStatus);
+                }).always(function () {
+                    app.start();
+                });
+            }
         },
         App = Marionette.Application.extend({
             initialize: function(options) {
@@ -36,7 +40,10 @@
         app = new App();
 
     app.addInitializer(function(options) {
-        var appHeaderView = new Views.HeaderView({
+        var ribbonView = new Views.RibbonView({
+                vent: this.vent
+            }),
+            appHeaderView = new Views.HeaderView({
                 vent: this.vent,
                 model: scenario
             }),
@@ -52,6 +59,7 @@
 
         app.appRegion.show(layout);
 
+        layout.ribbonRegion.show(ribbonView);
         layout.headerRegion.show(appHeaderView);
         layout.sidebarRegion.show(sidebarView);
         layout.mainRegion.show(appMainView);
@@ -84,4 +92,3 @@
 
     loadInitialData();
 });
-

@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>MotionScript: Editor</title>
+    <link rel="stylesheet" href="../Content/styles/main.css"/>
+    <script data-main="../Content/scripts/config" src="../Content/scripts/lib/requirejs/require.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <span id="currentId" style="display: none !important;">@Model</span>
+</body>
+</html>

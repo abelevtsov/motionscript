@@ -40,9 +40,10 @@
         Scenario = Backbone.Model.extend({
             defaults: {
                 name: "My first scenario",
-                version: "0.0.0.1",
+                version: "1",
                 scenes: new SceneCollection()
             },
+            url: "/scenario",
             getActiveBlock: function() {
                 var scenes = this.get("scenes");
                 // ToDo: improve search - hold active block index in dedicated place

@@ -1,13 +1,12 @@
-﻿using MongoDB.Bson;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
     public class ScriptBlock
     {
-        public ObjectId Id { get; set; }
-
         public ScriptBlockType BlockType { get; set; }
 
+        [BsonIgnoreIfNull]
         public string Text { get; set; }
     }
 }
