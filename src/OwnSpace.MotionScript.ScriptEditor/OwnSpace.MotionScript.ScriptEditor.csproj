@@ -155,6 +155,7 @@
     <Content Include="Content\scripts\app\templates\main.html" />
     <Content Include="Content\scripts\app\templates\templates.js" />
     <Content Include="Content\scripts\app\views.js" />
+    <Content Include="Content\scripts\app\blocktypes.js" />
     <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\app\main.js" />
     <Content Include="Gruntfile.js" />

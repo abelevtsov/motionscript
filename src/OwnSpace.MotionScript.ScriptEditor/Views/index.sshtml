@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="../Content/styles/main.css"/>
 </head>
 <body>
-    <table>
+    <table id="scenarioList">
         <tr>
             <th>
             </th>
             <th>
-                Название
+                Scenario name
             </th>
         </tr>
         @Each

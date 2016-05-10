@@ -1,5 +1,6 @@
-﻿define(["backbone", "marionette", "views", "models", "templates", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, $) {
+﻿define(["backbone", "marionette", "views", "models", "templates", "underscore", "blocktypes", "jquery", "jquery-ui"], function(Backbone, Marionette, Views, Models, templates, _, blocktypes, $) {
     var scenario,
+        app,
         loadInitialData = function() {
             var currentId = $("#currentId").text();
             if (!currentId) {
@@ -8,7 +9,7 @@
                         blocks: new Models.ScriptBlocks([
                             new Models.ScriptBlock({
                                 text: "SCENE 1",
-                                type: "sceneheading"
+                                blockType: "sceneheading"
                             })
                         ])
                     });
@@ -20,10 +21,30 @@
                 app.start();
             } else {
                 $.get("/scenario/" + currentId).done(function(data) {
-                    scenario = data;
-                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    scenario =
+                        new Models.Scenario({
+                            id: data.id,
+                            name: data.name,
+                            version: data.version,
+                            author: new Models.Author(data.author),
+                            scenes: new Models.Scenes(_.map(data.scenes, function(s) {
+                                var blocks = _.map(s.blocks, function (b) {
+                                        console.log(blocktypes[b.blockType]);
+                                        return new Models.ScriptBlock({
+                                            text: b.text,
+                                            blockType: blocktypes[b.blockType]
+                                        });
+                                    });
+
+                                return new Models.Scene({
+                                    heading: s.heading,
+                                    blocks: new Models.ScriptBlocks(blocks)
+                                });
+                            }))
+                        });
+                }).fail(function(jqXHR, textStatus, errorThrown) {
                     alert("An error occured: " + textStatus);
-                }).always(function () {
+                }).always(function() {
                     app.start();
                 });
             }
@@ -35,9 +56,9 @@
                     Backbone.history.start();
                 }
             }
-        }),
+        });
 
-        app = new App();
+    app = new App();
 
     app.addInitializer(function(options) {
         var ribbonView = new Views.RibbonView({

@@ -45,6 +45,8 @@
         HeaderView = Marionette.ItemView.extend({
             template: _.template(templates.header),
             events: {
+                "keyup #name": "changeName",
+                "keyup #version": "changeVersion",
                 "change #action-command": "changeBlock" // ToDo: use separate buttons instead select for more convenient usage
             },
             initialize: function(options) {
@@ -58,10 +60,16 @@
             setCurrentAction: function(value) {
                 $("#action-command").val(value);
             },
+            changeName: function(e) {
+                this.model.set("name", $(e.target).text());
+            },
+            changeVersion: function(e) {
+                this.model.set("version", $(e.target).text());
+            },
             changeBlock: function(e) {
                 var activeBlock = this.model.getActiveBlock();
                 if (activeBlock) {
-                    activeBlock.set({ type: e.target.value });
+                    activeBlock.set({ blockType: e.target.value });
                     var $activeView = $("p.block[active='true']");
                     $activeView.focus();
                     placeCaretAtEnd($activeView[0]);
@@ -135,7 +143,7 @@
                     }
                 }
 
-                this.model.on("change:type", this.render, this);
+                this.model.on("change:blockType", this.render, this);
             },
             setActive: function(e) {
                 var model = this.model;
@@ -145,7 +153,7 @@
 
                 this.vent.trigger("scenario:resetActive");
                 model.set({ active: true });
-                this.vent.trigger("header:setAction", model.get("type"));
+                this.vent.trigger("header:setAction", model.get("blockType"));
             },
             clearBlock: function(e) {
                 $(e.target).closest("p.block").text("").focus();
@@ -178,10 +186,10 @@
             renderBlock: function() {
                 console.log("SceneView: renderBlock");
             },
-            getNextType: function(haveText, type) {
+            getNextType: function(haveText, blockType) {
                 var flow = haveText ? scenarioflow.text : scenarioflow.empty;
 
-                return flow[type];
+                return flow[blockType];
             },
             addNewBlock: function(e) {
                 var enterKey = 13,
@@ -196,13 +204,13 @@
                 if (e.which === enterKey) {
                     e.preventDefault();
                     var haveText = !!$current.text(),
-                        nextType = this.getNextType(haveText, activeBlock.get("type")),
+                        nextType = this.getNextType(haveText, activeBlock.get("blockType")),
                         data = {
-                            type: nextType.next
+                            blockType: nextType.next
                         };
 
                     // ToDo: refact this shit
-                    if (data.type === "sceneheading") {
+                    if (data.blockType === "sceneheading") {
                         var blocksToMove = collection.slice(activeBlockIndex + 1, collection.length);
                         if (nextType.inPlace) {
                             collection.remove(collection.at(activeBlockIndex));
@@ -224,7 +232,7 @@
                         collection.remove(collection.at(activeBlockIndex));
 
                         collection.add(model, { at: activeBlockIndex });
-                        this.vent.trigger("header:setAction", model.get("type"));
+                        this.vent.trigger("header:setAction", model.get("blockType"));
                         $current = $prev;
                     } else {
                         collection.add(model, { at: activeBlockIndex + 1 });
@@ -255,11 +263,11 @@
                         return;
                     }
 
-                    var type = activeBlock.get("type"),
-                        $prev = type === "sceneheading" ? $current.closest("scene").prev().find("p.block").last() : $current.parent().prev().find("p.block");
+                    var blockType = activeBlock.get("blockType"),
+                        $prev = blockType === "sceneheading" ? $current.closest("scene").prev().find("p.block").last() : $current.parent().prev().find("p.block");
 
                     collection.remove(activeBlock);
-                    if (type === "sceneheading") { // ToDo: use !collection.length and move blocks to prev scene otherwise
+                    if (blockType === "sceneheading") { // ToDo: use !collection.length and move blocks to prev scene otherwise
                         this.deleteScene();
                         $prev.focus();
                         if ($prev.length && $prev.text()) {
@@ -276,7 +284,7 @@
                         placeCaretAtEnd($prev[0]);
                     }
 
-                    activeBlock && this.vent.trigger("header:setAction", activeBlock.get("type"));
+                    activeBlock && this.vent.trigger("header:setAction", activeBlock.get("blockType"));
                 } else {
                     $current.data(removeKey, false);
                     activeBlock.set({ text: $current.text() });
@@ -314,7 +322,7 @@
             },
             addScene: function(data, currentScene, blocksToMove) {
                 var collection = this.collection,
-                    headingBlock = new Models.ScriptBlock({ type: data.type, text: "SCENE " + ++collection.length }), // ToDo: only for test purposes - remove
+                    headingBlock = new Models.ScriptBlock({ blockType: data.blockType, text: "SCENE " + ++collection.length }), // ToDo: only for test purposes - remove
                     currentSceneIndex = collection.indexOf(currentScene);
 
                 blocksToMove.unshift(headingBlock);
@@ -339,7 +347,10 @@
                 console.log("renderScene: " + scene.toJSON());
             },
             save: function() {
-                this.model.save();
+                var res = this.model.save();
+                res.done(function(data) {
+                    window.location = window.location.origin + "/edit/" + data.id;
+                });
             }
         }),
         MainView = Marionette.LayoutView.extend({

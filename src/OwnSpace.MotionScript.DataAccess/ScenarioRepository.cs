@@ -35,7 +35,7 @@ namespace OwnSpace.MotionScript.DataAccess
 
         public async Task<Scenario> ObtainScenario(ObjectId id)
         {
-            var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id);
+            var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id.ToString());
             using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
             {
                 while (await cursor.MoveNextAsync().ConfigureAwait(false))
@@ -54,25 +54,23 @@ namespace OwnSpace.MotionScript.DataAccess
         public async Task<Scenario> AddOrUpdateScenario(Scenario scenario)
         {
             var collection = GetCollection();
-            if (scenario.Id != ObjectId.Empty)
+            if (string.IsNullOrEmpty(scenario.Id))
             {
-                await collection
-                    .ReplaceOneAsync(
-                        it => it.Id == scenario.Id,
-                        scenario,
-                        new UpdateOptions
-                            {
-                                IsUpsert = true
-                            })
-                    .ConfigureAwait(false);
-            }
-            else
-            {
-                scenario.Id = ObjectId.GenerateNewId(DateTime.UtcNow);
+                scenario.Id = ObjectId.GenerateNewId(DateTime.UtcNow).ToString();
                 await collection.InsertOneAsync(scenario).ConfigureAwait(false);
                 var result = await collection.FindAsync(it => it.Id == scenario.Id).ConfigureAwait(false);
                 return await result.FirstAsync().ConfigureAwait(false);
             }
+
+            await collection
+                .ReplaceOneAsync(
+                    it => it.Id == scenario.Id,
+                    scenario,
+                    new UpdateOptions
+                        {
+                            IsUpsert = true
+                        })
+                .ConfigureAwait(false);
 
             return scenario;
         }

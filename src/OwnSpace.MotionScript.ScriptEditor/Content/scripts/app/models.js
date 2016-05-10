@@ -2,7 +2,7 @@
     var ScriptBlock = Backbone.Model.extend({
             defaults: {
                 text: "",
-                type: "action",
+                blockType: "action",
                 active: false
             },
             initialize: function() {
@@ -43,7 +43,9 @@
                 version: "1",
                 scenes: new SceneCollection()
             },
-            url: "/scenario",
+            url: function(id) {
+                return id ? "/scenario/" + id : "/scenario";
+            },
             getActiveBlock: function() {
                 var scenes = this.get("scenes");
                 // ToDo: improve search - hold active block index in dedicated place

@@ -26,6 +26,8 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
+
+                    // ToDo: return only Id
                     var result = await ScenarioRepository.AddOrUpdateScenario(scenario).ConfigureAwait(false);
 
                     return Response.AsJson(result);
