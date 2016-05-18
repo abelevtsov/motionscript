@@ -1,6 +1,7 @@
 ﻿using Castle.Facilities.Logging;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Nancy;
 using Nancy.Bootstrappers.Windsor;
 using OwnSpace.MotionScript.DataAccess;
 using OwnSpace.MotionScript.DataAccess.Contracts;
@@ -13,7 +14,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
         protected override void ConfigureApplicationContainer(IWindsorContainer container)
         {
             base.ConfigureApplicationContainer(container);
-
+            StaticConfiguration.DisableErrorTraces = false;
             container.Register(Component.For(typeof(IScenarioRepository))
                      .ImplementedBy(typeof(ScenarioRepository))
                      .LifeStyle.Transient

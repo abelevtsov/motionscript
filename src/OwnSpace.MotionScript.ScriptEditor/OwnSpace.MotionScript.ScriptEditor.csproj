@@ -158,8 +158,8 @@
     <Content Include="Content\scripts\app\blocktypes.js" />
     <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\app\main.js" />
-    <Content Include="Gruntfile.js" />
-    <Content Include="Gulpfile.js" />
+    <None Include="Gruntfile.js" />
+    <None Include="Gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,19 +176,22 @@
     <Compile Include="ScenarioModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\edit.sshtml" />
-    <None Include="Views\index.sshtml">
+    <Content Include="Views\edit.sshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\index.sshtml">
       <SubType>Designer</SubType>
-    </None>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\styles\main.css" />
-    <Content Include=".jscsrc" />
-    <Content Include=".jshintrc" />
-    <Content Include="bower.json" />
+    <None Include=".jscsrc" />
+    <None Include=".jshintrc" />
+    <None Include="bower.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -196,12 +199,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
