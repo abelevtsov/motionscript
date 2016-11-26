@@ -1,39 +1,47 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class RelativeMovement : MonoBehaviour
 {
     public float moveSpeed = 6.0F;
+
     public float rotSpeed = 15.0F;
+
     public float jumpSpeed = 15.0F;
+
     public float gravity = -9.8F;
+
     public float terminalVelocity = -20.0F;
-    public float minFall = -1.5F;
+
+    // public float minFall = -1.5F;
 
     private float vertSpeed;
+
     private ControllerColliderHit contact;
 
     private CharacterController charController;
+
     private Animator animator;
 
     [SerializeField]
     private Transform target;
 
-    void Start()
+    private void Start()
     {
-        vertSpeed = minFall;
+        vertSpeed = gravity;
 
         charController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         var movement = Vector3.zero;
         var horizInput = Input.GetAxis("Horizontal");
         var vertInput = Input.GetAxis("Vertical");
 
-        if (!(horizInput == 0 && vertInput == 0))
+        if (!(Math.Abs(horizInput) < double.Epsilon && Math.Abs(vertInput) < double.Epsilon))
         {
             movement.x = horizInput * moveSpeed;
             movement.z = vertInput * moveSpeed;
@@ -66,7 +74,7 @@ public class RelativeMovement : MonoBehaviour
             }
             else
             {
-                vertSpeed = minFall;
+                vertSpeed = gravity;
                 animator.SetBool("Jumping", false);
             }
         }
@@ -83,7 +91,7 @@ public class RelativeMovement : MonoBehaviour
                 animator.SetBool("Jumping", true);
             }
 
-            if (charController.isGrounded)
+            if (charController.isGrounded && contact != null)
             {
                 if (Vector3.Dot(movement, contact.normal) < 0)
                 {
@@ -102,7 +110,7 @@ public class RelativeMovement : MonoBehaviour
         charController.Move(movement);
     }
 
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         contact = hit;
     }
