@@ -2,7 +2,6 @@
 using Castle.MicroKernel.Registration;
 using Castle.Services.Logging.NLogIntegration;
 using Castle.Windsor;
-using Nancy;
 using Nancy.Bootstrappers.Windsor;
 using OwnSpace.MotionScript.DataAccess;
 using OwnSpace.MotionScript.DataAccess.Contracts;

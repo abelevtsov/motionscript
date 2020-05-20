@@ -9,12 +9,12 @@ namespace OwnSpace.MotionScript.ScriptEditor
     // ReSharper disable once UnusedType.Global
     public sealed class ScenarioModule : NancyModule
     {
-        public ScenarioModule(IScenarioRepository scenarioRepository)
+        public ScenarioModule(IScenarioRepository scenarioRepository) : base("/scenario")
         {
             ScenarioRepository = scenarioRepository;
 
             Get(
-                "/scenario/{id}",
+                "/{id}",
                 async (parameters, cts) =>
                 {
                     var id = ObjectId.Parse((string)parameters.id);
@@ -23,7 +23,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 });
 
             Post(
-                "/scenario",
+                "/",
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
@@ -35,7 +35,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 });
 
             Put(
-                "/scenario",
+                "/",
                 async (_, cts) =>
                 {
                     var scenario = this.Bind<Scenario>();
@@ -45,7 +45,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 });
 
             Delete(
-                "/scenario/{id}",
+                "/{id}",
                 async (parameters, cts) =>
                 {
                     var id = ObjectId.Parse((string)parameters.id);
