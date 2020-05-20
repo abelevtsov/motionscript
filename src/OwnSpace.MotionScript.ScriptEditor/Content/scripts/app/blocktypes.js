@@ -1,12 +1,12 @@
 ﻿define(function() {
     return [
-            "sceneheading",
-            "action",
-            "character",
-            "dialog",
-            "parenthetical",
-            "transition",
-            "shot",
-            "text"
-        ];
+        "sceneheading",
+        "action",
+        "character",
+        "dialog",
+        "parenthetical",
+        "transition",
+        "shot",
+        "text"
+    ];
 });

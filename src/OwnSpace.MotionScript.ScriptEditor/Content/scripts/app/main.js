@@ -60,7 +60,7 @@
 
     app = new App();
 
-    app.addInitializer(function(options) {
+    app.addInitializer(function(opts) {
         var ribbonView = new Views.RibbonView({
                 vent: this.vent
             }),

@@ -1,5 +1,6 @@
 ﻿using Castle.Facilities.Logging;
 using Castle.MicroKernel.Registration;
+using Castle.Services.Logging.NLogIntegration;
 using Castle.Windsor;
 using Nancy;
 using Nancy.Bootstrappers.Windsor;
@@ -11,15 +12,16 @@ namespace OwnSpace.MotionScript.ScriptEditor
 {
     public class Bootstrapper : WindsorNancyBootstrapper
     {
-        protected override void ConfigureApplicationContainer(IWindsorContainer container)
+        protected override void ConfigureApplicationContainer(IWindsorContainer existingContainer)
         {
-            base.ConfigureApplicationContainer(container);
-            StaticConfiguration.DisableErrorTraces = false;
-            container.Register(Component.For(typeof(IScenarioRepository))
-                     .ImplementedBy(typeof(ScenarioRepository))
-                     .LifeStyle.Transient
-                     .DependsOn(Dependency.OnValue("mongoConnectionString", Settings.Default.MongoConnectionString)))
-                     .AddFacility<LoggingFacility>(f => f.LogUsing(LoggerImplementation.NLog).WithConfig("NLog.config"));
+            base.ConfigureApplicationContainer(existingContainer);
+
+            existingContainer
+                .Register(Component.For(typeof(IScenarioRepository))
+                .ImplementedBy(typeof(ScenarioRepository))
+                .LifeStyle.Transient
+                .DependsOn(Dependency.OnValue("mongoConnectionString", Settings.Default.MongoConnectionString)))
+                .AddFacility<LoggingFacility>(f => f.LogUsing<NLogFactory>().WithConfig("NLog.config"));
         }
     }
 }

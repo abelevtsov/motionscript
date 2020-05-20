@@ -9,8 +9,6 @@ namespace OwnSpace.MotionScript.ScriptEditor
 {
     public class ScenarioModule : NancyModule
     {
-        private ILogger logger = NullLogger.Instance;
-
         public ScenarioModule(IScenarioRepository scenarioRepository)
         {
             ScenarioRepository = scenarioRepository;
@@ -22,6 +20,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
                     var scenario = await ScenarioRepository.ObtainScenario(id).ConfigureAwait(false);
                     return Response.AsJson(scenario);
                 };
+
             Post["/scenario", runAsync: true] =
                 async (_, cts) =>
                 {
@@ -32,6 +31,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
 
                     return Response.AsJson(result);
                 };
+
             Put["/scenario", runAsync: true] =
                 async (_, cts) =>
                 {
@@ -40,6 +40,7 @@ namespace OwnSpace.MotionScript.ScriptEditor
 
                     return Response.AsJson(result);
                 };
+
             Delete["/scenario/{id}", runAsync: true] =
                 async (parameters, cts) =>
                 {
@@ -50,12 +51,8 @@ namespace OwnSpace.MotionScript.ScriptEditor
                 };
         }
 
-        private IScenarioRepository ScenarioRepository { get; set; }
+        private IScenarioRepository ScenarioRepository { get; }
 
-        private ILogger Logger
-        {
-            get { return logger; }
-            set { logger = value; }
-        }
+        private ILogger Logger { get; set; } = NullLogger.Instance;
     }
 }

@@ -2,17 +2,11 @@
 
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
 
 namespace OwnSpace.MotionScript.DataAccess.Entities
 {
     public class Scenario
     {
-        public Scenario()
-        {
-            Scenes = new List<Scene>();
-        }
-
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -26,6 +20,6 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
         [BsonDefaultValue(1)]
         public string Version { get; set; }
 
-        public IList<Scene> Scenes { get; set; }
+        public IList<Scene> Scenes { get; } = new List<Scene>();
     }
 }

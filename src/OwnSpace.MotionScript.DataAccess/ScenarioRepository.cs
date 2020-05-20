@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using MongoDB.Bson;
@@ -38,13 +39,9 @@ namespace OwnSpace.MotionScript.DataAccess
             var filter = Builders<Scenario>.Filter.Eq(it => it.Id, id.ToString());
             using (var cursor = await GetCollection().FindAsync(filter).ConfigureAwait(false))
             {
-                while (await cursor.MoveNextAsync().ConfigureAwait(false))
+                if (await cursor.MoveNextAsync().ConfigureAwait(false))
                 {
-                    var batch = cursor.Current;
-                    foreach (var scenario in batch)
-                    {
-                        return scenario;
-                    }
+                    return cursor.Current.FirstOrDefault();
                 }
             }
 
@@ -66,7 +63,7 @@ namespace OwnSpace.MotionScript.DataAccess
                 .ReplaceOneAsync(
                     it => it.Id == scenario.Id,
                     scenario,
-                    new UpdateOptions
+                    new ReplaceOptions
                         {
                             IsUpsert = true
                         })

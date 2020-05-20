@@ -16,13 +16,7 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
         public string MiddleName { get; set; }
 
         [BsonIgnoreIfNull]
-        public string FullName
-        {
-            get
-            {
-                return string.Format(FullNameTemplate, FirstName, MiddleName, LastName);
-            }
-        }
+        public string FullName => string.Format(FullNameTemplate, FirstName, MiddleName, LastName);
 
         [BsonIgnoreIfNull]
         public DateTime? BirthDate { get; set; }
@@ -34,9 +28,6 @@ namespace OwnSpace.MotionScript.DataAccess.Entities
         [BsonIgnoreIfNull]
         public string Phone { get; set; }
 
-        public override string ToString()
-        {
-            return FullName;
-        }
+        public override string ToString() => FullName;
     }
 }
