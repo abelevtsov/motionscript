@@ -1,6 +1,6 @@
 {
   "author": "abelevtsov",
-  "name": "OwnSpace.MotionScript.ScriptEditor",
+  "name": "ownspace.motionscript",
   "description": "web resources for OwnSpace.MotionScript.ScriptEditor solution",
   "version": "0.0.1",
   "preferGlobal": true,
